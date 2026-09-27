@@ -1,0 +1,44 @@
+site_name: dpdpkit
+site_description: Developer toolkit for India's DPDP Act, 2023 and DPDP Rules, 2025
+site_url: https://dpdpkit.dev/
+repo_url: https://github.com/dpdpkit-dev/dpdpkit-docs
+edit_uri: edit/main/docs/
+copyright: Apache-2.0 · dpdpkit helps implement obligations; it is not legal advice and does not guarantee compliance.
+
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+  palette:
+    - scheme: default
+      toggle: { icon: material/brightness-7, name: Dark mode }
+    - scheme: slate
+      toggle: { icon: material/brightness-4, name: Light mode }
+
+extra:
+  version:
+    provider: mike
+
+markdown_extensions:
+  - admonition
+  - tables
+  - toc: { permalink: true }
+  - pymdownx.superfences
+  - pymdownx.tabbed: { alternate_style: true }
+
+nav:
+  - Home: index.md
+  - Getting started:
+      - FastAPI quickstart: getting-started/fastapi.md
+      - Any other stack: getting-started/other-stacks.md
+  - Concepts:
+      - Policy packs: concepts/policy-packs.md
+      - Consent ledger: concepts/ledger.md
+      - Retention and erasure: concepts/retention.md
+  - Reference:
+      - Rule to code: reference/rule-to-code.md
+      - REST contract: reference/rest.md

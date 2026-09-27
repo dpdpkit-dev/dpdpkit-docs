@@ -1,0 +1,40 @@
+# Build on every PR; deploy to GitHub Pages on main ("dev") and on tags vX.Y.Z (versioned with mike).
+name: Docs
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: Generate the rule-to-code page
+        run: python scripts/gen_rule_map.py
+      - run: mkdocs build --strict
+      - name: Deploy
+        if: github.event_name == 'push'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [[ "$GITHUB_REF" == refs/tags/v* ]]; then
+            version="${GITHUB_REF_NAME#v}"
+            minor="${version%.*}"
+            mike deploy --push --update-aliases "$minor" latest
+            mike set-default --push latest
+          else
+            mike deploy --push dev
+          fi
