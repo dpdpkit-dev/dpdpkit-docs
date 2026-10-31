@@ -785,6 +785,62 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/webhooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Webhooks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/email/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Email delivery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1576,7 +1632,8 @@ respecting legal holds and purposes kept under a legal obligation.</p>
 <p>Retention warnings and erasures run on a schedule. In <strong>one</strong> process (not every web worker):</p>
 <div class="highlight"><pre><span></span><code><span class="n">dpdp</span><span class="o">.</span><span class="n">start_scheduler</span><span class="p">(</span><span class="n">retention_minutes</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </code></pre></div>
-<p>This runs retention every 15 minutes, verifies the ledger daily and exports the ledger root hash daily.
+<p>This runs retention every 15 minutes, verifies the ledger daily, exports the ledger root hash daily and
+sends any queued <a href="../../guides/webhooks/">webhooks</a>.
 Without APScheduler, call the CLI from cron instead:</p>
 <div class="highlight"><pre><span></span><code>dpdpkit<span class="w"> </span>retention<span class="w"> </span>run<span class="w"> </span>--kit<span class="w"> </span>main:dpdp
 dpdpkit<span class="w"> </span>ledger<span class="w"> </span>verify<span class="w"> </span>--kit<span class="w"> </span>main:dpdp
@@ -1597,10 +1654,12 @@ for the pattern.</p>
 <ul>
 <li>[ ] Replace the stand-in <code>current_user</code> and <code>staff_role</code> with your real auth.</li>
 <li>[ ] Set <code>DPDPKIT_SIGNING_KEY</code> to a long random secret, kept out of source control.</li>
-<li>[ ] Use <code>SmtpNotifier</code> (or your own notifier) so pre-erasure warnings are actually delivered.</li>
+<li>[ ] Use <code>SmtpNotifier</code>, <code>SesNotifier</code> or your own notifier so pre-erasure warnings are actually
+  delivered. See <a href="../../guides/email/">Email delivery</a>.</li>
 <li>[ ] Register erasure handlers for every purpose that has a retention rule, and test them.</li>
 <li>[ ] Run the scheduler in exactly one process.</li>
 <li>[ ] Export the ledger root hash somewhere you cannot rewrite. See <a href="../../guides/anchoring/">Anchoring</a>.</li>
+<li>[ ] If other systems must act on erasures or withdrawals, configure <a href="../../guides/webhooks/">webhooks</a>.</li>
 <li>[ ] Have counsel review <code>dpdpkit.yaml</code>: purposes, notice text, translations and retention periods.</li>
 </ul>
 
