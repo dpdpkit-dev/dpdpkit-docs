@@ -145,6 +145,29 @@ curl -X POST localhost:8000/dpdp/consents/marketing/withdraw -H "X-User: u_42"
 curl -X POST localhost:8000/offers/send -H "X-User: u_42"     # 403 consent_required
 ```
 
+### Async apps
+
+If your app uses async SQLAlchemy, give dpdpkit the same URL or engine:
+
+```python
+from sqlalchemy.ext.asyncio import create_async_engine
+
+engine = create_async_engine("postgresql+asyncpg://app:secret@db/app")
+dpdp = DPDPKit(engine=engine, ...)          # or db_url="postgresql+asyncpg://..."
+```
+
+dpdpkit's core is synchronous, so it connects with the matching sync driver (asyncpg → psycopg,
+aiosqlite → sqlite, aiomysql/asyncmy → PyMySQL) through its own small connection pool. Install it with
+`dpdpkit-fastapi[postgres]` or `[mysql]`. The REST endpoints already run in a threadpool. In your own
+`async def` code, call kit methods through `dpdp.run()` so the event loop is never blocked:
+
+```python
+@app.post("/newsletter")
+async def newsletter(user=Depends(current_user)):
+    if await dpdp.run(dpdp.kit.consent.check, user.id, "marketing"):
+        ...
+```
+
 ## 6. Tell dpdpkit how to erase and export your data
 
 dpdpkit never touches your own tables. You register two kinds of function:
