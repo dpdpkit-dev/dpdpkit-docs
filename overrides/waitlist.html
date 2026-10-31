@@ -1,0 +1,117 @@
+{#- Cloud waitlist form, appended under the page's "Sign up" heading (docs/waitlist.md).
+    Configured by extra.waitlist in mkdocs.yml. The form stays disabled until both the form endpoint and
+    the name of the service behind it are set, so the notice always names who processes submissions. -#}
+{% extends "main.html" %}
+{% block content %}
+{{ super() }}
+{% set wl = config.extra.waitlist %}
+{% set live = wl.action and wl.processor %}
+<style>
+  .dpdp-waitlist fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+  .dpdp-waitlist fieldset[disabled] { opacity: .6; }
+  .dpdp-waitlist label { display: block; margin: 1em 0 .25em; font-weight: 700; }
+  .dpdp-waitlist .dpdp-waitlist__check { display: flex; gap: .5em; align-items: baseline; margin: .4em 0; font-weight: 400; }
+  .dpdp-waitlist input[type="email"], .dpdp-waitlist input[type="text"], .dpdp-waitlist select {
+    width: 100%; max-width: 28em; padding: .5em .6em; font: inherit; color: inherit;
+    background: var(--md-default-bg-color); border: 1px solid var(--md-default-fg-color--lighter); border-radius: .2em;
+  }
+  .dpdp-waitlist legend { font-weight: 700; margin-top: 1em; padding: 0; }
+  .dpdp-waitlist__trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+  .dpdp-waitlist .md-button { margin-top: 1.2em; }
+</style>
+
+<p>Your entry goes to the dpdpkit maintainers.
+{%- if wl.processor %} Submissions are stored by {{ wl.processor|e }}, which processes them on our behalf.{% endif %}
+For questions, a copy of your data, corrections, erasure or a complaint, email
+<a href="mailto:{{ wl.contact|e }}">{{ wl.contact|e }}</a>. If our answer does not resolve a complaint, you can
+take it to the Data Protection Board of India.</p>
+
+{% if not live %}
+<div class="admonition info">
+  <p class="admonition-title">Signups are not open yet</p>
+  <p>The waitlist opens soon. Watch <a href="{{ config.repo_url|e }}">the repository</a> for the announcement.</p>
+</div>
+{% endif %}
+
+<form class="dpdp-waitlist" method="post" action="{{ (wl.action or '#')|e }}" accept-charset="UTF-8">
+  <fieldset{% if not live %} disabled{% endif %}>
+    <input type="hidden" name="notice_version" value="{{ wl.notice_version|e }}">
+    <div class="dpdp-waitlist__trap" aria-hidden="true">
+      <label for="waitlist-gotcha">Leave this empty</label>
+      <input type="text" id="waitlist-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+    </div>
+
+    <label for="waitlist-email">Email (required)</label>
+    <input type="email" id="waitlist-email" name="email" required autocomplete="email">
+
+    <label for="waitlist-organisation">Organisation (optional)</label>
+    <input type="text" id="waitlist-organisation" name="organisation" autocomplete="organization">
+
+    <label for="waitlist-stack">Main back-end stack (optional)</label>
+    <select id="waitlist-stack" name="stack">
+      <option value="">Prefer not to say</option>
+      <option>FastAPI</option>
+      <option>Django</option>
+      <option>Flask or other Python</option>
+      <option>Node.js</option>
+      <option>PHP</option>
+      <option>Java</option>
+      <option>Go</option>
+      <option>.NET</option>
+      <option>Other</option>
+    </select>
+
+    <fieldset>
+      <legend>I'm interested in (optional)</legend>
+      <label class="dpdp-waitlist__check"><input type="checkbox" name="interest_cloud" value="yes"> dpdpkit Cloud beta</label>
+      <label class="dpdp-waitlist__check"><input type="checkbox" name="interest_services" value="yes"> Help implementing dpdpkit (readiness sprint)</label>
+      <label class="dpdp-waitlist__check"><input type="checkbox" name="interest_design_partner" value="yes"> Becoming a design partner</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>Consent</legend>
+      <label class="dpdp-waitlist__check"><input type="checkbox" name="consent" value="yes" required>
+        I agree to the dpdpkit maintainers emailing me about the Cloud beta and the interests I ticked, as described
+        in the notice on this page. I can withdraw at any time.</label>
+    </fieldset>
+
+    <button type="submit" class="md-button md-button--primary">Join the waitlist</button>
+  </fieldset>
+  <p class="dpdp-waitlist__status" role="status" aria-live="polite"></p>
+</form>
+
+{% if live %}
+<script>
+  // Without JavaScript the form posts normally and the form service shows its own confirmation page.
+  (() => {
+    const form = document.querySelector("form.dpdp-waitlist");
+    if (!form || !window.fetch) return;
+    const fieldset = form.querySelector("fieldset");
+    const button = form.querySelector("button[type=submit]");
+    const status = form.querySelector(".dpdp-waitlist__status");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      button.disabled = true;
+      status.textContent = "Sending…";
+      try {
+        if (!form.elements._gotcha.value) {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" },
+          });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        }
+        form.reset();
+        fieldset.hidden = true;
+        status.textContent = "Thanks, you're on the list. We'll email you when there is news.";
+      } catch {
+        button.disabled = false;
+        status.textContent = "That didn't go through. Your details are still in the form, so please try again, "
+          + "or email " + {{ wl.contact|tojson }} + ".";
+      }
+    });
+  })();
+</script>
+{% endif %}
+{% endblock %}

@@ -22,6 +22,11 @@ theme:
 extra:
   version:
     provider: mike
+  waitlist:  # docs/waitlist.md; the form stays disabled until action and processor are both set
+    action: !ENV [DPDPKIT_WAITLIST_ACTION, ""]        # form endpoint that accepts a plain HTML POST
+    processor: !ENV [DPDPKIT_WAITLIST_PROCESSOR, ""]  # service behind it, named in the notice
+    contact: privacy@dpdpkit.dev  # placeholder until the domain is registered (SETUP-05)
+    notice_version: "2026-10-31"  # bump whenever the notice in docs/waitlist.md changes
 
 plugins:
   - search
@@ -82,3 +87,4 @@ nav:
           - Storage: reference/python/storage.md
           - Models and errors: reference/python/models.md
           - FastAPI adapter: reference/python/fastapi.md
+  - Cloud waitlist: waitlist.md

@@ -36,6 +36,10 @@ jobs:
           python scripts/gen_rule_map.py
           python scripts/stage_api_src.py _siblings
       - run: mkdocs build --strict
+        env:
+          # Repository variables (Settings → Secrets and variables → Actions → Variables); see README.
+          DPDPKIT_WAITLIST_ACTION: ${{ vars.WAITLIST_ACTION }}
+          DPDPKIT_WAITLIST_PROCESSOR: ${{ vars.WAITLIST_PROCESSOR }}
       - name: Deploy
         if: github.event_name == 'push'
         run: |

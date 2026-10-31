@@ -13,6 +13,8 @@ warnings, and audit evidence. It runs inside your own app, against your own data
 
 Most Data Fiduciary obligations become enforceable on **13 May 2027**.
 
+Want dpdpkit run for you, or help setting it up? Join the [Cloud waitlist](waitlist.md).
+
 ## Principles
 
 - **Primitives, not promises.** dpdpkit gives you tools. It never claims to make you compliant.
