@@ -21,9 +21,20 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Check out dpdpkit-core and dpdpkit-fastapi for the API reference
+        uses: actions/checkout@v4
+        with:
+          repository: dpdpkit-dev/dpdpkit-core
+          path: _siblings/dpdpkit-core
+      - uses: actions/checkout@v4
+        with:
+          repository: dpdpkit-dev/dpdpkit-fastapi
+          path: _siblings/dpdpkit-fastapi
       - run: pip install -r requirements.txt
-      - name: Generate the rule-to-code page
-        run: python scripts/gen_rule_map.py
+      - name: Generate the rule-to-code page and stage API sources
+        run: |
+          python scripts/gen_rule_map.py
+          python scripts/stage_api_src.py _siblings
       - run: mkdocs build --strict
       - name: Deploy
         if: github.event_name == 'push'

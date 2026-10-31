@@ -1,3 +1,5 @@
 mkdocs-material>=9.5
 mike>=2.1
+mkdocstrings>=1.0
+mkdocstrings-python>=2.0
 dpdpkit-policies @ git+https://github.com/dpdpkit-dev/dpdpkit-policies@main
