@@ -461,6 +461,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="5. Gate features on consent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#async-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async apps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1435,6 +1452,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="5. Gate features on consent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#async-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Async apps
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1628,6 +1662,22 @@ purpose, so the frontend can ask for it. In background jobs, check directly:</p>
 <p>Withdrawal is one call, and it takes effect immediately:</p>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>localhost:8000/dpdp/consents/marketing/withdraw<span class="w"> </span>-H<span class="w"> </span><span class="s2">"X-User: u_42"</span>
 curl<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>localhost:8000/offers/send<span class="w"> </span>-H<span class="w"> </span><span class="s2">"X-User: u_42"</span><span class="w">     </span><span class="c1"># 403 consent_required</span>
+</code></pre></div>
+<h3 id="async-apps">Async apps<a class="headerlink" href="#async-apps" title="Permanent link">&para;</a></h3>
+<p>If your app uses async SQLAlchemy, give dpdpkit the same URL or engine:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">sqlalchemy.ext.asyncio</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_async_engine</span>
+
+<span class="n">engine</span> <span class="o">=</span> <span class="n">create_async_engine</span><span class="p">(</span><span class="s2">"postgresql+asyncpg://app:secret@db/app"</span><span class="p">)</span>
+<span class="n">dpdp</span> <span class="o">=</span> <span class="n">DPDPKit</span><span class="p">(</span><span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>          <span class="c1"># or db_url="postgresql+asyncpg://..."</span>
+</code></pre></div>
+<p>dpdpkit's core is synchronous, so it connects with the matching sync driver (asyncpg → psycopg,
+aiosqlite → sqlite, aiomysql/asyncmy → PyMySQL) through its own small connection pool. Install it with
+<code>dpdpkit-fastapi[postgres]</code> or <code>[mysql]</code>. The REST endpoints already run in a threadpool. In your own
+<code>async def</code> code, call kit methods through <code>dpdp.run()</code> so the event loop is never blocked:</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">"/newsletter"</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">newsletter</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">current_user</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="k">await</span> <span class="n">dpdp</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">dpdp</span><span class="o">.</span><span class="n">kit</span><span class="o">.</span><span class="n">consent</span><span class="o">.</span><span class="n">check</span><span class="p">,</span> <span class="n">user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">"marketing"</span><span class="p">):</span>
+        <span class="o">...</span>
 </code></pre></div>
 <h2 id="6-tell-dpdpkit-how-to-erase-and-export-your-data">6. Tell dpdpkit how to erase and export your data<a class="headerlink" href="#6-tell-dpdpkit-how-to-erase-and-export-your-data" title="Permanent link">&para;</a></h2>
 <p>dpdpkit never touches your own tables. You register two kinds of function:</p>

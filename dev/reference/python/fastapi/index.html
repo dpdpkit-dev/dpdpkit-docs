@@ -1379,6 +1379,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#dpdpkit.fastapi.app.DPDPKit.run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dpdpkit.fastapi.app.DPDPKit.require_consent" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -2539,6 +2550,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#dpdpkit.fastapi.app.DPDPKit.run" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dpdpkit.fastapi.app.DPDPKit.require_consent" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3563,7 +3585,7 @@
 
 
 <a href="#dpdpkit.fastapi.app.DPDPKit" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">DPDPKit</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">principal_resolver</span><span class="p">:</span> <span class="n"><span title="dpdpkit.fastapi.app.PrincipalResolver">PrincipalResolver</span></span><span class="p">,</span> <span class="n">admin_guard</span><span class="p">:</span> <span class="n"><span title="dpdpkit.fastapi.app.AdminGuard">AdminGuard</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">db_url</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">repository</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Repository (dpdpkit.repository.Repository)" href="../storage/#dpdpkit.repository.Repository">Repository</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="n"><span title="collections.abc.Mapping">Mapping</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">policy</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><a class="autorefs autorefs-internal" title="            Policy (dpdpkit.policy.Policy)" href="../kit/#dpdpkit.policy.Policy">Policy</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">overlays</span><span class="p">:</span> <span class="n"><span title="collections.abc.Iterable">Iterable</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span> <span class="n">registry</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Registry (dpdpkit.Registry)" href="../kit/#dpdpkit.registry.Registry">Registry</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">notifier</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Notifier (dpdpkit.notify.Notifier)" href="../events/#dpdpkit.notify.Notifier">Notifier</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">contact</span><span class="p">:</span> <span class="n"><span title="collections.abc.Mapping">Mapping</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="str">str</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">contact_resolver</span><span class="p">:</span> <span class="n"><span title="dpdpkit.kit.ContactResolver">ContactResolver</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">identity_verifier</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            IdentityVerifier (dpdpkit.rights.IdentityVerifier)" href="../rights/#dpdpkit.rights.IdentityVerifier">IdentityVerifier</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">signing_key</span><span class="p">:</span> <span class="n"><span title="bytes">bytes</span></span> <span class="o">|</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s1">'default'</span><span class="p">,</span> <span class="n">webhooks</span><span class="p">:</span> <span class="n"><span title="collections.abc.Iterable">Iterable</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            WebhookEndpoint (dpdpkit.events.WebhookEndpoint)" href="../events/#dpdpkit.events.WebhookEndpoint">WebhookEndpoint</a></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">migrate_on_startup</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">create_tables</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kit_kwargs</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">DPDPKit</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">principal_resolver</span><span class="p">:</span> <span class="n"><span title="dpdpkit.fastapi.app.PrincipalResolver">PrincipalResolver</span></span><span class="p">,</span> <span class="n">admin_guard</span><span class="p">:</span> <span class="n"><span title="dpdpkit.fastapi.app.AdminGuard">AdminGuard</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">db_url</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">engine</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">repository</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Repository (dpdpkit.repository.Repository)" href="../storage/#dpdpkit.repository.Repository">Repository</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="pathlib.Path">Path</span></span> <span class="o">|</span> <span class="n"><span title="collections.abc.Mapping">Mapping</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">policy</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><a class="autorefs autorefs-internal" title="            Policy (dpdpkit.policy.Policy)" href="../kit/#dpdpkit.policy.Policy">Policy</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">overlays</span><span class="p">:</span> <span class="n"><span title="collections.abc.Iterable">Iterable</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span> <span class="n">registry</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Registry (dpdpkit.Registry)" href="../kit/#dpdpkit.registry.Registry">Registry</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">notifier</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Notifier (dpdpkit.notify.Notifier)" href="../events/#dpdpkit.notify.Notifier">Notifier</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">contact</span><span class="p">:</span> <span class="n"><span title="collections.abc.Mapping">Mapping</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="str">str</span></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">contact_resolver</span><span class="p">:</span> <span class="n"><span title="dpdpkit.kit.ContactResolver">ContactResolver</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">identity_verifier</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            IdentityVerifier (dpdpkit.rights.IdentityVerifier)" href="../rights/#dpdpkit.rights.IdentityVerifier">IdentityVerifier</a></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">signing_key</span><span class="p">:</span> <span class="n"><span title="bytes">bytes</span></span> <span class="o">|</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">tenant_id</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">=</span> <span class="s1">'default'</span><span class="p">,</span> <span class="n">webhooks</span><span class="p">:</span> <span class="n"><span title="collections.abc.Iterable">Iterable</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            WebhookEndpoint (dpdpkit.events.WebhookEndpoint)" href="../events/#dpdpkit.events.WebhookEndpoint">WebhookEndpoint</a></span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">migrate_on_startup</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">create_tables</span><span class="p">:</span> <span class="n"><span title="bool">bool</span></span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kit_kwargs</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -3860,6 +3882,31 @@ omitted they are read from the <code>webhooks:</code> list in the config, with s
     <div class="doc doc-contents ">
 
         <p>Evidence stored with consent events. No IP address or personal data by default.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="dpdpkit.fastapi.app.DPDPKit.run" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">run</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-async"><code>async</code></small>
+  </span>
+
+<a href="#dpdpkit.fastapi.app.DPDPKit.run" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">run</span><span class="p">(</span><span class="n">fn</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[</span><span class="n"><span title="dpdpkit.fastapi.app.P">P</span></span><span class="p">,</span> <span class="n"><span title="dpdpkit.fastapi.app.T">T</span></span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n"><span title="dpdpkit.fastapi.app.P.args">args</span></span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n"><span title="dpdpkit.fastapi.app.P.kwargs">kwargs</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="dpdpkit.fastapi.app.T">T</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Call a kit method from <code>async def</code> code without blocking the event loop::</p>
+<p>allowed = await dpdp.run(dpdp.kit.consent.check, user_id, "marketing")</p>
 
 
     </div>
@@ -4235,12 +4282,15 @@ Throttled per principal so busy users do not write on every request.</p>
 
 
 <a href="#dpdpkit.fastapi.repository.SqlAlchemyRepository" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">SqlAlchemyRepository</span><span class="p">(</span><span class="n">engine</span><span class="p">:</span> <span class="n"><span title="sqlalchemy.Engine">Engine</span></span> <span class="o">|</span> <span class="n"><span title="str">str</span></span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">SqlAlchemyRepository</span><span class="p">(</span><span class="n">engine</span><span class="p">:</span> <span class="n"><span title="sqlalchemy.Engine">Engine</span></span> <span class="o">|</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
 
 
+
+        <p><code>engine</code> is a URL, an <code>Engine</code>, or the app's <code>AsyncEngine</code> (dpdpkit then opens its own
+small sync pool to the same database).</p>
 
 
 
@@ -4273,7 +4323,7 @@ Throttled per principal so busy users do not write on every request.</p>
   </span>
 
 <a href="#dpdpkit.fastapi.repository.SqlAlchemyRepository.engine" class="headerlink" title="Permanent link">&para;</a></h4>
-<div class="doc-signature highlight"><pre><span></span><code><span class="n">engine</span> <span class="o">=</span> <span class="n"><a class="autorefs autorefs-internal" title="            make_engine (dpdpkit.fastapi.repository.make_engine)" href="#dpdpkit.fastapi.repository.make_engine">make_engine</a></span><span class="p">(</span><span class="n"><span title="dpdpkit.fastapi.repository.SqlAlchemyRepository(engine)">engine</span></span><span class="p">)</span> <span class="k">if</span> <span class="n"><span title="isinstance">isinstance</span></span><span class="p">(</span><span class="n"><span title="dpdpkit.fastapi.repository.SqlAlchemyRepository(engine)">engine</span></span><span class="p">,</span> <span class="n"><span title="str">str</span></span><span class="p">)</span> <span class="k">else</span> <span class="n"><span title="dpdpkit.fastapi.repository.SqlAlchemyRepository(engine)">engine</span></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="n">engine</span> <span class="o">=</span> <span class="n"><span title="dpdpkit.fastapi.repository.SqlAlchemyRepository(engine)">engine</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -4794,12 +4844,14 @@ Throttled per principal so busy users do not write on every request.</p>
 
 
 <a href="#dpdpkit.fastapi.repository.make_engine" class="headerlink" title="Permanent link">&para;</a></h3>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">make_engine</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="sqlalchemy.Engine">Engine</span></span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">make_engine</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="n"><span title="sqlalchemy.URL">URL</span></span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="sqlalchemy.Engine">Engine</span></span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
 
         <p>Create an engine with settings dpdpkit relies on (SQLite savepoints, shared in-memory DB).</p>
+<p>Async URLs (<code>postgresql+asyncpg://</code>, <code>sqlite+aiosqlite://</code> ...) are accepted and connect with the
+matching sync driver, which must be installed (<code>dpdpkit-fastapi[postgres]</code> or <code>[mysql]</code>).</p>
 
 
     </div>
