@@ -803,6 +803,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deprecation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Versioning and deprecation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -818,10 +846,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
             
   
   
@@ -839,8 +867,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_5_3">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -4404,6 +4432,67 @@
     <span class="md-ellipsis">
       
         delivered_at
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dpdpkit.deprecation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deprecation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="deprecation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.deprecation.DpdpkitDeprecationWarning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DpdpkitDeprecationWarning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.deprecation.warn_deprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        warn_deprecated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.deprecation.moved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        moved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.deprecation.deprecation_message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deprecation_message
       
     </span>
   </a>
@@ -8174,6 +8263,67 @@
     <span class="md-ellipsis">
       
         delivered_at
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dpdpkit.deprecation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deprecation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="deprecation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.deprecation.DpdpkitDeprecationWarning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DpdpkitDeprecationWarning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.deprecation.warn_deprecated" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        warn_deprecated
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.deprecation.moved" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        moved
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.deprecation.deprecation_message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        deprecation_message
       
     </span>
   </a>
@@ -15807,6 +15957,158 @@
 
 </div>
 
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="dpdpkit.deprecation" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <span class="doc doc-object-name doc-module-name">deprecation</span>
+
+
+<a href="#dpdpkit.deprecation" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Deprecation helpers used by every dpdpkit package (see "Deprecation policy" in the docs).</p>
+<p>A deprecated API keeps working for at least two minor releases (and at least 90 days) after the release
+that deprecates it, warns with <code>DpdpkitDeprecationWarning</code> every time it is used, and is listed
+under "Deprecated" in the changelog.</p>
+<p>Functions, methods and classes are marked with PEP 702 so type checkers report callers too. The message
+must be a string literal (mypy ignores computed messages) in the standard wording::</p>
+<pre><code>from typing_extensions import deprecated
+
+@deprecated(
+    "Ledger.export_roots() is deprecated since dpdpkit 0.3 and will be removed in 0.5; "
+    "use Ledger.export_root() instead",
+    category=DpdpkitDeprecationWarning,
+)
+def export_roots(self): ...
+</code></pre>
+<p>Parameters, config keys and renamed module attributes use <code>warn_deprecated</code> and <code>moved</code>.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="dpdpkit.deprecation.DpdpkitDeprecationWarning" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <span class="doc doc-object-name doc-class-name">DpdpkitDeprecationWarning</span>
+
+
+<a href="#dpdpkit.deprecation.DpdpkitDeprecationWarning" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="DeprecationWarning">DeprecationWarning</span></code></p>
+
+
+
+        <p>Something you use will be removed in a later dpdpkit release. The message says what replaces it.</p>
+<p>Python hides <code>DeprecationWarning</code> outside <code>__main__</code> and test runners; to see these everywhere,
+run with <code>-W always::dpdpkit.DpdpkitDeprecationWarning</code>.</p>
+
+
+
+
+
+
+
+
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="dpdpkit.deprecation.warn_deprecated" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">warn_deprecated</span>
+
+
+<a href="#dpdpkit.deprecation.warn_deprecated" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">warn_deprecated</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">since</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">removed_in</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">use</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">stacklevel</span><span class="p">:</span> <span class="n"><span title="int">int</span></span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Warn about a deprecated parameter, config key or value from inside the code that still accepts it.</p>
+<p><code>stacklevel=3</code> points at the caller of the function that calls this helper.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="dpdpkit.deprecation.moved" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">moved</span>
+
+
+<a href="#dpdpkit.deprecation.moved" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">moved</span><span class="p">(</span><span class="n">module_name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">renames</span><span class="p">:</span> <span class="n"><span title="dict">dict</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="tuple">tuple</span></span><span class="p">[</span><span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">,</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n"><span title="str">str</span></span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[[</span><span class="n"><span title="str">str</span></span><span class="p">],</span> <span class="n"><span title="typing.Any">Any</span></span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Build a module <code>__getattr__</code> that keeps old names importable with a warning.</p>
+<p><code>renames</code> maps an old attribute name to <code>(new dotted name, object, since, removed_in)</code>::</p>
+<pre><code>__getattr__ = moved(__name__, {"OldName": ("dpdpkit.models.NewName", NewName, "0.3", "0.5")})
+</code></pre>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="dpdpkit.deprecation.deprecation_message" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <span class="doc doc-object-name doc-function-name">deprecation_message</span>
+
+
+<a href="#dpdpkit.deprecation.deprecation_message" class="headerlink" title="Permanent link">&para;</a></h3>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">deprecation_message</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">since</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">removed_in</span><span class="p">:</span> <span class="n"><span title="str">str</span></span><span class="p">,</span> <span class="n">use</span><span class="p">:</span> <span class="n"><span title="str">str</span></span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="str">str</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+
+    </div>
+
+</div>
 
 
 
