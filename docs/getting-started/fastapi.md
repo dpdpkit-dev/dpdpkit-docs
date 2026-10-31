@@ -190,7 +190,8 @@ Retention warnings and erasures run on a schedule. In **one** process (not every
 dpdp.start_scheduler(retention_minutes=15)
 ```
 
-This runs retention every 15 minutes, verifies the ledger daily and exports the ledger root hash daily.
+This runs retention every 15 minutes, verifies the ledger daily, exports the ledger root hash daily and
+sends any queued [webhooks](../guides/webhooks.md).
 Without APScheduler, call the CLI from cron instead:
 
 ```bash
@@ -225,4 +226,5 @@ for the pattern.
 - [ ] Register erasure handlers for every purpose that has a retention rule, and test them.
 - [ ] Run the scheduler in exactly one process.
 - [ ] Export the ledger root hash somewhere you cannot rewrite. See [Anchoring](../guides/anchoring.md).
+- [ ] If other systems must act on erasures or withdrawals, configure [webhooks](../guides/webhooks.md).
 - [ ] Have counsel review `dpdpkit.yaml`: purposes, notice text, translations and retention periods.

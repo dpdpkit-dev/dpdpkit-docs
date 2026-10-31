@@ -64,6 +64,7 @@ nav:
       - Retention and erasure: concepts/retention.md
   - Guides:
       - Anchoring the root hash: guides/anchoring.md
+      - Webhooks: guides/webhooks.md
   - Reference:
       - Rule to code: reference/rule-to-code.md
       - REST contract: reference/rest.md

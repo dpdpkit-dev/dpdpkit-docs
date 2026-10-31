@@ -8,4 +8,8 @@
     options:
       members: [SqlAlchemyRepository, make_engine]
 
+::: dpdpkit.fastapi.webhooks
+    options:
+      members: [WebhookOutbox, WebhookDelivery, DeliveryRun, endpoints_from_config]
+
 ::: dpdpkit.fastapi.http.ConsentRequiredHTTP
