@@ -2,34 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://dpdpkit.dev/dev/</loc>
-         <lastmod>2026-09-27</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://dpdpkit.dev/dev/concepts/ledger/</loc>
-         <lastmod>2026-09-27</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://dpdpkit.dev/dev/concepts/policy-packs/</loc>
-         <lastmod>2026-09-27</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://dpdpkit.dev/dev/concepts/retention/</loc>
-         <lastmod>2026-09-27</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://dpdpkit.dev/dev/getting-started/fastapi/</loc>
-         <lastmod>2026-09-27</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://dpdpkit.dev/dev/getting-started/other-stacks/</loc>
-         <lastmod>2026-09-27</lastmod>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dpdpkit.dev/dev/guides/anchoring/</loc>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://dpdpkit.dev/dev/reference/rest/</loc>
-         <lastmod>2026-09-27</lastmod>
+         <lastmod>2026-10-31</lastmod>
     </url>
     <url>
          <loc>https://dpdpkit.dev/dev/reference/rule-to-code/</loc>
-         <lastmod>2026-09-27</lastmod>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dpdpkit.dev/dev/reference/python/</loc>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dpdpkit.dev/dev/reference/python/consent/</loc>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dpdpkit.dev/dev/reference/python/events/</loc>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dpdpkit.dev/dev/reference/python/export/</loc>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dpdpkit.dev/dev/reference/python/fastapi/</loc>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dpdpkit.dev/dev/reference/python/kit/</loc>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dpdpkit.dev/dev/reference/python/ledger/</loc>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dpdpkit.dev/dev/reference/python/models/</loc>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dpdpkit.dev/dev/reference/python/retention/</loc>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dpdpkit.dev/dev/reference/python/rights/</loc>
+         <lastmod>2026-10-31</lastmod>
+    </url>
+    <url>
+         <loc>https://dpdpkit.dev/dev/reference/python/storage/</loc>
+         <lastmod>2026-10-31</lastmod>
     </url>
 </urlset>
