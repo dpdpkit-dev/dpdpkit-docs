@@ -53,6 +53,7 @@ plugins:
 
 markdown_extensions:
   - admonition
+  - attr_list
   - tables
   - toc: { permalink: true }
   - pymdownx.superfences
@@ -74,6 +75,7 @@ nav:
   - Reference:
       - Rule to code: reference/rule-to-code.md
       - REST contract: reference/rest.md
+      - React components: reference/react.md
       - Versioning and deprecation: reference/deprecation.md
       - Python API:
           - Overview: reference/python/index.md

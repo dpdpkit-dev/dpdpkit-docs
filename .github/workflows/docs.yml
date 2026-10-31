@@ -30,11 +30,27 @@ jobs:
         with:
           repository: dpdpkit-dev/dpdpkit-fastapi
           path: _siblings/dpdpkit-fastapi
+      - name: Check out dpdpkit-react for the Storybook
+        uses: actions/checkout@v7
+        with:
+          repository: dpdpkit-dev/dpdpkit-react
+          path: _siblings/dpdpkit-react
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: _siblings/dpdpkit-react/package-lock.json
+      - name: Build the Storybook
+        working-directory: _siblings/dpdpkit-react
+        run: |
+          npm ci
+          npm run build-storybook
       - run: pip install -r requirements.txt
-      - name: Generate the rule-to-code page and stage API sources
+      - name: Generate the rule-to-code page and stage API sources and the Storybook
         run: |
           python scripts/gen_rule_map.py
           python scripts/stage_api_src.py _siblings
+          python scripts/stage_storybook.py _siblings
       - run: mkdocs build --strict
         env:
           # Repository variables (Settings → Secrets and variables → Actions → Variables); see README.

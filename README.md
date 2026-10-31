@@ -9,11 +9,16 @@ Source for the dpdpkit documentation site (MkDocs Material, versioned with `mike
 pip install -r requirements.txt
 python scripts/gen_rule_map.py
 python scripts/stage_api_src.py      # API reference sources, from ../dpdpkit-core and ../dpdpkit-fastapi
+python scripts/stage_storybook.py    # Storybook, from ../dpdpkit-react/storybook-static
 mkdocs serve
 ```
 
+Build the Storybook once before staging it: `npm ci && npm run build-storybook` in `../dpdpkit-react`.
+
 The Python API pages (`docs/reference/python/`) are generated from docstrings at build time. CI checks
 out `dpdpkit-core` and `dpdpkit-fastapi` from `main`, so a docstring change shows up on the next docs build.
+The same goes for the `@dpdpkit/react` Storybook: CI builds it from `dpdpkit-react` `main` and mkdocs publishes it
+at `/<version>/storybook/`, linked from `docs/reference/react.md`.
 
 Deploys: `main` → `/dev/`, tag `vX.Y.Z` → `/X.Y/` plus the `latest` alias.
 
