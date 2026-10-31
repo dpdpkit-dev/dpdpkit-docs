@@ -16,6 +16,8 @@
         <link rel="prev" href="../models/">
       
       
+        <link rel="next" href="../../../waitlist/">
+      
       
         
       
@@ -1390,6 +1392,28 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#dpdpkit.fastapi.app.DPDPKit.bind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.fastapi.app.DPDPKit.run_in_session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_in_session
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#dpdpkit.fastapi.app.DPDPKit.require_consent" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -1621,6 +1645,17 @@
     <span class="md-ellipsis">
       
         transaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.fastapi.repository.SqlAlchemyRepository.bind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bind
       
     </span>
   </a>
@@ -2367,6 +2402,33 @@
   
 
     
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../waitlist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud waitlist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -2554,6 +2616,28 @@
     <span class="md-ellipsis">
       
         run
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.fastapi.app.DPDPKit.bind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bind
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.fastapi.app.DPDPKit.run_in_session" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        run_in_session
       
     </span>
   </a>
@@ -2792,6 +2876,17 @@
     <span class="md-ellipsis">
       
         transaction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dpdpkit.fastapi.repository.SqlAlchemyRepository.bind" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        bind
       
     </span>
   </a>
@@ -3916,6 +4011,57 @@ omitted they are read from the <code>webhooks:</code> list in the config, with s
 <div class="doc doc-object doc-function">
 
 
+<h4 id="dpdpkit.fastapi.app.DPDPKit.bind" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">bind</span>
+
+
+<a href="#dpdpkit.fastapi.app.DPDPKit.bind" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">bind</span><span class="p">(</span><span class="n">session</span><span class="p">:</span> <span class="n"><span title="sqlalchemy.orm.Session">Session</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="contextlib.AbstractContextManager">AbstractContextManager</span></span><span class="p">[</span><span class="n"><span title="sqlalchemy.orm.Session">Session</span></span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Run kit calls inside the app's sync <code>Session</code>; see <code>SqlAlchemyRepository.bind</code>.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="dpdpkit.fastapi.app.DPDPKit.run_in_session" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">run_in_session</span>
+
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-async"><code>async</code></small>
+  </span>
+
+<a href="#dpdpkit.fastapi.app.DPDPKit.run_in_session" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">run_in_session</span><span class="p">(</span><span class="n">session</span><span class="p">:</span> <span class="n"><span title="sqlalchemy.ext.asyncio.AsyncSession">AsyncSession</span></span><span class="p">,</span> <span class="n">fn</span><span class="p">:</span> <span class="n"><span title="collections.abc.Callable">Callable</span></span><span class="p">[</span><span class="n"><span title="dpdpkit.fastapi.app.P">P</span></span><span class="p">,</span> <span class="n"><span title="dpdpkit.fastapi.app.T">T</span></span><span class="p">],</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n"><span title="dpdpkit.fastapi.app.P.args">args</span></span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n"><span title="dpdpkit.fastapi.app.P.kwargs">kwargs</span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="dpdpkit.fastapi.app.T">T</span></span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Call a kit method inside the app's <code>AsyncSession</code>, so its writes commit or roll back with the
+app's own work::</p>
+<pre><code>async with AsyncSession(engine) as s, s.begin():
+    s.add(Order(...))
+    await dpdp.run_in_session(s, dpdp.kit.consent.grant, user_id, "marketing")
+</code></pre>
+<p>dpdpkit never commits the session. The call runs through <code>AsyncSession.run_sync</code> on the event
+loop, so keep it to database work; event listeners see the event before the app commits.</p>
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h4 id="dpdpkit.fastapi.app.DPDPKit.require_consent" class="doc doc-heading">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">require_consent</span>
 
@@ -4389,6 +4535,42 @@ small sync pool to the same database).</p>
 </code></pre></div>
 
     <div class="doc doc-contents ">
+
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="dpdpkit.fastapi.repository.SqlAlchemyRepository.bind" class="doc doc-heading">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <span class="doc doc-object-name doc-function-name">bind</span>
+
+
+<a href="#dpdpkit.fastapi.repository.SqlAlchemyRepository.bind" class="headerlink" title="Permanent link">&para;</a></h4>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">bind</span><span class="p">(</span><span class="n">session</span><span class="p">:</span> <span class="n"><a class="autorefs autorefs-internal" title="            Session
+
+
+  
+      instance-attribute
+   (dpdpkit.fastapi.repository.SqlAlchemyRepository.Session)" href="#dpdpkit.fastapi.repository.SqlAlchemyRepository.Session">Session</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n"><span title="collections.abc.Iterator">Iterator</span></span><span class="p">[</span><span class="n"><a class="autorefs autorefs-internal" title="            Session
+
+
+  
+      instance-attribute
+   (dpdpkit.fastapi.repository.SqlAlchemyRepository.Session)" href="#dpdpkit.fastapi.repository.SqlAlchemyRepository.Session">Session</a></span><span class="p">]</span>
+</code></pre></div>
+
+    <div class="doc doc-contents ">
+
+        <p>Run kit calls inside the app's own <code>Session</code>, so they commit or roll back with its work::</p>
+<pre><code>with Session(engine) as s, s.begin(), dpdp.repository.bind(s):
+    s.add(Order(...))
+    dpdp.kit.consent.grant(user_id, "marketing")
+</code></pre>
+<p>dpdpkit never commits a bound session; each write runs in a savepoint. For an <code>AsyncSession</code> use
+<code>await dpdp.run_in_session(session, fn, ...)</code>.</p>
 
 
     </div>
