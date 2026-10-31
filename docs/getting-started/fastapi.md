@@ -222,7 +222,8 @@ for the pattern.
 
 - [ ] Replace the stand-in `current_user` and `staff_role` with your real auth.
 - [ ] Set `DPDPKIT_SIGNING_KEY` to a long random secret, kept out of source control.
-- [ ] Use `SmtpNotifier` (or your own notifier) so pre-erasure warnings are actually delivered.
+- [ ] Use `SmtpNotifier`, `SesNotifier` or your own notifier so pre-erasure warnings are actually
+  delivered. See [Email delivery](../guides/email.md).
 - [ ] Register erasure handlers for every purpose that has a retention rule, and test them.
 - [ ] Run the scheduler in exactly one process.
 - [ ] Export the ledger root hash somewhere you cannot rewrite. See [Anchoring](../guides/anchoring.md).

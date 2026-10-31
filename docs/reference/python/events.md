@@ -7,3 +7,7 @@
 ::: dpdpkit.notify
     options:
       members: [Notifier, NullNotifier, MemoryNotifier, ConsoleNotifier, SmtpNotifier, render]
+
+::: dpdpkit.ses
+    options:
+      members: [SesNotifier, poll_ses_events, apply_ses_event, ses_event_outcome]
