@@ -104,9 +104,10 @@ take it to the Data Protection Board of India.</p>
             headers: { Accept: "application/json" },
           });
           if (!response.ok) throw new Error(`HTTP ${response.status}`);
-          // Apps Script always answers 200, so a rejected signup is reported as {"ok": false}.
+          // Apps Script can't set a failure status: a rejected signup is {"ok": false} and a crashed script
+          // replies with an HTML page. Only an explicit {"ok": true} means the signup was stored.
           const result = await response.json().catch(() => ({}));
-          if (result.ok === false) throw new Error(result.error || "rejected");
+          if (result.ok !== true) throw new Error(result.error || "rejected");
         }
         form.reset();
         fieldset.hidden = true;

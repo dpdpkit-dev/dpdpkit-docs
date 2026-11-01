@@ -11,6 +11,13 @@ entries until you delete them, and exports to CSV.
 2. Create a Google Sheet called `dpdpkit waitlist`.
 3. In the sheet, open **Extensions → Apps Script**. Replace the contents of `Code.gs` with [Code.gs](Code.gs)
    and save.
+
+   If that menu item fails with "Sorry, unable to open the file at present", which can happen when you are
+   signed in to several Google accounts, use a standalone project instead:
+   1. Go to [script.google.com](https://script.google.com), using the account that owns the sheet, and create
+      a project. Replace the contents of `Code.gs` with [Code.gs](Code.gs) and save.
+   2. Open **Project Settings → Script Properties** and add the property `SHEET_ID`. Its value is the part of
+      the sheet's URL between `/d/` and `/edit`.
 4. Click **Deploy → New deployment**, choose the type **Web app**, and set:
    - **Execute as:** Me
    - **Who has access:** Anyone
@@ -27,7 +34,8 @@ entries until you delete them, and exports to CSV.
 
    A `Waitlist` tab appears with a header row and the test entry. Delete the test row.
 6. In GitHub, open `dpdpkit-dev/dpdpkit-docs` → **Settings → Secrets and variables → Actions → Variables**
-   and add two repository variables:
+   and add two repository variables. They must be variables, not secrets: the workflow reads only `vars.*`,
+   and the URL is public anyway because it appears in the page's HTML.
 
    | Variable | Value |
    | --- | --- |
@@ -41,8 +49,9 @@ entries until you delete them, and exports to CSV.
    gh variable set WAITLIST_PROCESSOR --repo dpdpkit-dev/dpdpkit-docs --body "Google (Google Sheets)"
    ```
 
-7. Re-run the **Docs** workflow (Actions → Docs → Run workflow) or push to `main`. The form on the waitlist
-   page is enabled once the deploy finishes. Sign up once from the live page and delete that row afterwards.
+7. Push to `main`, or open the latest **Docs** run on `main` and choose **Re-run all jobs**. The **Run
+   workflow** button only builds; it doesn't deploy. The form on the waitlist page is enabled once the deploy
+   finishes. Sign up once from the live page and delete that row afterwards.
 
 ## Changing the script later
 

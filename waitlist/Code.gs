@@ -1,5 +1,6 @@
 // Waitlist backend for docs/waitlist.md: a Google Apps Script web app that appends each signup to the
-// "Waitlist" tab of the spreadsheet it is bound to. Setup steps are in waitlist/README.md.
+// "Waitlist" tab of a spreadsheet: the one it is bound to, or for a standalone script project, the one named
+// by the SHEET_ID script property. Setup steps are in waitlist/README.md.
 //
 // Apps Script cannot set HTTP status codes, so every reply is 200 and the form reads {"ok": ...} instead.
 // Requests from the docs site's JavaScript carry _ajax=1 and get JSON; a plain form post (no JavaScript)
@@ -49,7 +50,9 @@ function doPost(e) {
 }
 
 function sheet_() {
-  const book = SpreadsheetApp.getActiveSpreadsheet();
+  const book =
+    SpreadsheetApp.getActiveSpreadsheet() ||
+    SpreadsheetApp.openById(PropertiesService.getScriptProperties().getProperty("SHEET_ID"));
   const sheet = book.getSheetByName(SHEET_NAME) || book.insertSheet(SHEET_NAME);
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(["received_at"].concat(FIELDS));
