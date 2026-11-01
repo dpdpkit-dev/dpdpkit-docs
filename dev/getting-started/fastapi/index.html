@@ -781,6 +781,90 @@
   
   
     <li class="md-nav__item">
+      <a href="../../guides/purpose-templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Industry purpose templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/data-mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data-mapping workbook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/notice-review/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notice review
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../guides/anchoring/" class="md-nav__link">
         
   
@@ -980,6 +1064,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../reference/react/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    React components
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../reference/deprecation/" class="md-nav__link">
         
   
@@ -1018,10 +1130,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_5" >
         
           
-          <label class="md-nav__link" for="__nav_5_4" id="__nav_5_4_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
             
   
   
@@ -1039,8 +1151,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5_4">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1599,14 +1711,17 @@ driver.</p>
   and every response to a rights request.</li>
 <li><strong><code>purposes</code></strong>: one entry per reason you process personal data. Each lists the <code>data_items</code> it
   uses and, optionally, a <code>retention</code> rule. The starter file has <code>account</code> (required to run the service,
-  erased after 3 years of inactivity) and <code>marketing</code> (optional, erased when consent is withdrawn).</li>
+  erased after 3 years of inactivity) and <code>marketing</code> (optional, erased when consent is withdrawn).
+  For ed-tech, health, e-commerce, fintech or SaaS, start from a fuller file with
+  <code>dpdpkit init --template &lt;sector&gt;</code> (see <a href="../../guides/purpose-templates/">Industry purpose templates</a>).</li>
 <li><strong><code>notice</code></strong>: the title, body and links shown with the consent form. Add <code>translations</code> for each
   language you serve.</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">These are legal decisions</p>
 <p>Which purposes need consent, what the notice says and how long data is kept are decisions for you
-and your counsel. dpdpkit records and enforces what you configure.</p>
+and your counsel. dpdpkit records and enforces what you configure. <code>dpdpkit notice review</code> prepares a
+review pack for them (see <a href="../../guides/notice-review/">Notice review</a>).</p>
 </div>
 <p>The <code>policy:</code> line pins the rules pack (deadlines, warning periods, log retention). See
 <a href="../../concepts/policy-packs/">Policy packs</a>.</p>
