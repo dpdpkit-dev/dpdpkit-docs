@@ -29,6 +29,8 @@ This writes `dpdpkit.yaml`. Open it and change three things:
 - **`purposes`**: one entry per reason you process personal data. Each lists the `data_items` it
   uses and, optionally, a `retention` rule. The starter file has `account` (required to run the service,
   erased after 3 years of inactivity) and `marketing` (optional, erased when consent is withdrawn).
+  For ed-tech, health, e-commerce, fintech or SaaS, start from a fuller file with
+  `dpdpkit init --template <sector>` (see [Industry purpose templates](../guides/purpose-templates.md)).
 - **`notice`**: the title, body and links shown with the consent form. Add `translations` for each
   language you serve.
 

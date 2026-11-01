@@ -69,6 +69,7 @@ nav:
       - Consent ledger: concepts/ledger.md
       - Retention and erasure: concepts/retention.md
   - Guides:
+      - Industry purpose templates: guides/purpose-templates.md
       - Anchoring the root hash: guides/anchoring.md
       - Webhooks: guides/webhooks.md
       - Email delivery: guides/email.md
