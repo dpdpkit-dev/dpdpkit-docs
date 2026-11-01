@@ -1,0 +1,175 @@
+# The 5-minute demo: narration and the steps recorded under it.
+#
+# `python demo/demo.py record` runs every step for real against demo/app and fails if an
+# `expect`, `status` or `exit` check does not hold. `python demo/demo.py render` turns the
+# recording into an MP4 with burned-in captions and a matching .srt. See demo/README.md.
+#
+# Step kinds:
+#   say only                     a narration beat over the current screen
+#   run: <command>               run in the work dir (dpdpkit and python resolve to the recording interpreter)
+#   type: <command>              shown but not run (pip install: the packages are already installed)
+#   http: <METHOD> <path>        call the running app; shown as the equivalent curl command
+#   show: <file>                 show part of a file (`from`/`to` are regexes; `to` is exclusive)
+#   server: start                start `uvicorn main:app`
+# Output filters: `fields` keeps top-level JSON keys, `only` keeps lines matching any regex.
+
+scenes:
+  - title: dpdpkit in five minutes
+    card:
+      - dpdpkit
+      - Open-source building blocks for India's DPDP Act, 2023 and DPDP Rules, 2025
+    steps:
+      - say: >-
+          This is dpdpkit, an open-source toolkit for India's Digital Personal Data Protection Act
+          and the DPDP Rules, 2025. In the next five minutes we'll give a small FastAPI shop consent
+          notices, a consent ledger, rights requests and retention, all running inside the app
+          against its own database. Nothing calls home.
+
+  - title: Install and describe your purposes
+    steps:
+      - type: pip install --pre "dpdpkit[fastapi]"
+        say: One package install. It brings the core library, the FastAPI adapter and the policy packs.
+      - run: dpdpkit init
+        expect: wrote dpdpkit.yaml
+        say: >-
+          dpdpkit init writes a starter config. This file is where you describe why you process
+          personal data.
+      - show: dpdpkit.yaml
+        from: "^purposes:"
+        to: "^notice:"
+        say: >-
+          Each purpose lists the data items it uses and an optional retention rule. Account is
+          required to run the service and is erased after three years of inactivity. Marketing is
+          optional and erased when consent is withdrawn. Which purposes you have and how long you keep
+          data are decisions for you and your counsel. dpdpkit records and enforces what you configure.
+      - run: dpdpkit policy show
+        only: ["^id:", "fiduciary_duties", "erasure_pre_notice_hours", "request_max_days", "grievance_max_days"]
+        say: >-
+          The legal numbers live in a versioned policy pack, not in code. Deadlines, warning periods and
+          commencement dates are data you can diff and pin, including the 13 May 2027 date when most
+          Data Fiduciary duties start.
+
+  - title: Wire it into FastAPI
+    steps:
+      - show: main.py
+        from: "^dpdp = DPDPKit"
+        to: "^@dpdp.kit.retention"
+        say: >-
+          In the app, one DPDPKit object takes the database URL, the config, and three small functions
+          that tell it who the user is, who is staff, and where to send notices. install mounts the REST
+          endpoints under slash dpdp.
+      - show: main.py
+        from: "^@dpdp.kit.retention"
+        say: >-
+          dpdpkit never touches your own tables. You register an erasure handler that deletes or
+          anonymises your rows, and you gate features with require consent.
+      - server: start
+        say: Let's start the app.
+
+  - title: Notice and consent
+    steps:
+      - http: GET /dpdp/notices/current
+        status: 200
+        fields: [version, locale, content_hash, available_locales, title, links]
+        say: >-
+          The front end fetches the current notice. It's versioned, content-hashed, carries the links
+          the Rules require, and has a Hindi translation alongside English.
+      - http: POST /dpdp/consents
+        user: u_42
+        json: {decisions: [{purpose: account, granted: true}, {purpose: marketing, granted: true}]}
+        status: 201
+        expect: granted
+        say: >-
+          The user's choices come back one purpose at a time. Nothing is pre-ticked. Each decision is
+          written to a hash-chained ledger with the exact notice version the user saw.
+      - http: GET /dpdp/consents/me/receipt
+        user: u_42
+        status: 200
+        fields: [receipt_id, principal, ledger_head, algorithm, signature]
+        say: And the user can download a signed receipt that pins the ledger head at that moment.
+
+  - title: Gate features, withdraw in one call
+    steps:
+      - http: POST /offers/send
+        user: u_42
+        status: 200
+        say: With marketing consent, the offers endpoint works.
+      - http: POST /dpdp/consents/marketing/withdraw
+        user: u_42
+        status: 200
+        expect: withdrawn
+        say: Withdrawing is a single call, as easy as granting. That's a requirement, not a nicety.
+      - http: POST /offers/send
+        user: u_42
+        status: 403
+        expect: consent_required
+        say: >-
+          The same request is now refused with consent required, naming the purpose, so the front end
+          can ask again. No code changes, no cache to expire.
+
+  - title: Retention that warns before it erases
+    steps:
+      - run: dpdpkit retention preview --kit main:dpdp
+        expect: erase
+        say: >-
+          Withdrawing marketing consent scheduled an erasure. The preview shows a warning due now and
+          the erasure forty-eight hours later, the pre-erasure notice period from the policy pack.
+      - run: dpdpkit retention run --kit main:dpdp
+        expect: '"warned": 1'
+        say: >-
+          The scheduler sends the warning. Here it prints to the console; in production it's SMTP, SES
+          or your own notifier. If a warning can't be delivered, or your erasure handler fails, dpdpkit
+          holds the schedule and flags it for a person. It never deletes on a guess.
+
+  - title: Rights requests with deadlines
+    steps:
+      - http: POST /dpdp/requests
+        user: u_42
+        json: {kind: erasure, details: {}}
+        status: 201
+        save: {request_id: id}
+        fields: [id, kind, status, due_at, max_due_at]
+        say: >-
+          Users raise access, correction, erasure and grievance requests. The due date and the outer
+          limit come from the policy pack.
+      - http: PATCH /dpdp/admin/requests/{request_id}
+        user: staff
+        json: {action: respond, message: Your account data has been erased.}
+        status: 200
+        expect: completed
+        fields: [id, status, outcome, response, closed_at]
+        say: >-
+          Staff work the queue through the admin API. Responding to an erasure request calls your
+          erasure handler, respects legal holds, and records everything in the audit log.
+
+  - title: A ledger you can check
+    steps:
+      - run: dpdpkit ledger verify --kit main:dpdp
+        expect: "ok:"
+        say: Every consent event and every staff action is hash-chained. Verify walks both chains.
+      - run: python tamper.py
+        expect: withdraw -> grant
+        say: >-
+          Now let's play an insider with database access, and quietly turn that withdrawal back into a
+          grant.
+      - run: dpdpkit ledger verify --kit main:dpdp
+        exit: 2
+        expect: FAILED
+        say: >-
+          Verification fails and names the row. Export the root hash daily to somewhere you can't
+          rewrite, and even a rebuilt chain is caught.
+
+  - title: Get started
+    card:
+      - dpdpkit
+      - pip install --pre "dpdpkit[fastapi]"
+      - Docs  dpdpkit-dev.github.io/dpdpkit-docs
+      - Code  github.com/dpdpkit-dev
+    steps:
+      - say: >-
+          That's dpdpkit: notices, consent, rights requests, retention and evidence, as open-source
+          building blocks in your own app. There are React components for the front end, a conformance
+          suite for your API, and Django support coming next. The quickstart takes about thirty minutes.
+      - say: >-
+          dpdpkit helps you implement the obligations. It isn't legal advice and doesn't make you
+          compliant on its own. The links are on screen. Thanks for watching.

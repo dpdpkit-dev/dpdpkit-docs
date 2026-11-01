@@ -37,3 +37,9 @@ Locally, set `DPDPKIT_WAITLIST_ACTION` and `DPDPKIT_WAITLIST_PROCESSOR` before `
 The form sends `email`, optional `organisation`, `stack` and `interest_*` fields, `consent=yes`,
 `notice_version`, and a `_gotcha` honeypot that should be empty (Formspree drops submissions that fill it).
 Bump `extra.waitlist.notice_version` in `mkdocs.yml` whenever the notice text changes.
+
+## Demo video
+
+`demo/` holds the 5-minute demo as code: a narrated script (`demo/scenes.yaml`), the quickstart app it runs,
+and `demo/demo.py`, which records every step against the real packages and renders an MP4 with captions.
+See [demo/README.md](demo/README.md).
