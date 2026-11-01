@@ -1560,20 +1560,15 @@ notice you saw.</p>
   .dpdp-waitlist .md-button { margin-top: 1.2em; }
 </style>
 
-<p>Your entry goes to the dpdpkit maintainers.
+<p>Your entry goes to the dpdpkit maintainers. Submissions are stored by Google (Google Sheets), which processes them on our behalf.
 For questions, a copy of your data, corrections, erasure or a complaint, email
 <a href="mailto:privacy@dpdpkit.dev">privacy@dpdpkit.dev</a>. If our answer does not resolve a complaint, you can
 take it to the Data Protection Board of India.</p>
 
 
-<div class="admonition info">
-  <p class="admonition-title">Signups are not open yet</p>
-  <p>The waitlist opens soon. Watch <a href="https://github.com/dpdpkit-dev/dpdpkit-docs">the repository</a> for the announcement.</p>
-</div>
 
-
-<form class="dpdp-waitlist" method="post" action="#" accept-charset="UTF-8">
-  <fieldset disabled>
+<form class="dpdp-waitlist" method="post" action="https://script.google.com/macros/s/AKfycbzWMHrn4gqRsl6_NnyKTnr_Yarqhhrnz-lAZlOOmfZSQBEuiPLko3XHH1_anWPmvs8/exec" accept-charset="UTF-8">
+  <fieldset>
     <input type="hidden" name="notice_version" value="2026-10-31">
     <div class="dpdp-waitlist__trap" aria-hidden="true">
       <label for="waitlist-gotcha">Leave this empty</label>
@@ -1619,6 +1614,46 @@ take it to the Data Protection Board of India.</p>
   <p class="dpdp-waitlist__status" role="status" aria-live="polite"></p>
 </form>
 
+
+<script>
+  // Without JavaScript the form posts normally and the form service shows its own confirmation page.
+  (() => {
+    const form = document.querySelector("form.dpdp-waitlist");
+    if (!form || !window.fetch) return;
+    const fieldset = form.querySelector("fieldset");
+    const button = form.querySelector("button[type=submit]");
+    const status = form.querySelector(".dpdp-waitlist__status");
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      button.disabled = true;
+      status.textContent = "Sending…";
+      try {
+        if (!form.elements._gotcha.value) {
+          // URL-encoded, like a plain form post: no CORS preflight, and Apps Script parses it into e.parameter.
+          const body = new URLSearchParams(new FormData(form));
+          body.append("_ajax", "1");
+          const response = await fetch(form.action, {
+            method: "POST",
+            body,
+            headers: { Accept: "application/json" },
+          });
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          // Apps Script can't set a failure status: a rejected signup is {"ok": false} and a crashed script
+          // replies with an HTML page. Only an explicit {"ok": true} means the signup was stored.
+          const result = await response.json().catch(() => ({}));
+          if (result.ok !== true) throw new Error(result.error || "rejected");
+        }
+        form.reset();
+        fieldset.hidden = true;
+        status.textContent = "Thanks, you're on the list. We'll email you when there is news.";
+      } catch {
+        button.disabled = false;
+        status.textContent = "That didn't go through. Your details are still in the form, so please try again, "
+          + "or email " + "privacy@dpdpkit.dev" + ".";
+      }
+    });
+  })();
+</script>
 
 
               </article>
