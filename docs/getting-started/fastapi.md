@@ -36,7 +36,8 @@ This writes `dpdpkit.yaml`. Open it and change three things:
 
 !!! warning "These are legal decisions"
     Which purposes need consent, what the notice says and how long data is kept are decisions for you
-    and your counsel. dpdpkit records and enforces what you configure.
+    and your counsel. dpdpkit records and enforces what you configure. `dpdpkit notice review` prepares a
+    review pack for them (see [Notice review](../guides/notice-review.md)).
 
 The `policy:` line pins the rules pack (deadlines, warning periods, log retention). See
 [Policy packs](../concepts/policy-packs.md).

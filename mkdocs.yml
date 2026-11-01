@@ -71,6 +71,7 @@ nav:
   - Guides:
       - Industry purpose templates: guides/purpose-templates.md
       - Data-mapping workbook: guides/data-mapping.md
+      - Notice review: guides/notice-review.md
       - Anchoring the root hash: guides/anchoring.md
       - Webhooks: guides/webhooks.md
       - Email delivery: guides/email.md

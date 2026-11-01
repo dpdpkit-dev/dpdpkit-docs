@@ -8,7 +8,11 @@
 
 ::: dpdpkit.templates
     options:
-      members: [list_templates, load_template, PurposeTemplate]
+      members: [list_templates, load_template, PurposeTemplate, NoticeReview]
+
+::: dpdpkit.review
+    options:
+      members: [notice_checks, notice_hashes, notice_translations_for, review_pack, NoticeCheck]
 
 ::: dpdpkit.workbook
     options:

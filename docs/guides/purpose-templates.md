@@ -23,7 +23,9 @@ To correct a template with a client, open it as a [data-mapping workbook](data-m
 !!! warning "A starting point, not legal advice"
     Every purpose, legal basis, retention period and line of notice wording in a template is an assumption
     for you and your counsel to confirm. Comments at the top of each file list the questions to settle.
-    The Hindi text should be reviewed by a native speaker before you publish it.
+    The Hindi text should be reviewed by a native speaker before you publish it. The notice wording in each
+    template goes through a lawyer review; `dpdpkit init --list-templates` shows whether it has been reviewed
+    yet, and [Notice review](notice-review.md) explains how to get your own notice approved.
 
 ## How the templates are built
 
@@ -38,7 +40,8 @@ Every template follows the same rules, and the test suite in `dpdpkit-core` chec
   `legal_basis: s7_d`, so an erasure request leaves that data in place (see
   [Retention and erasure](../concepts/retention.md)).
 - **Every purpose has a retention rule**, every data item and processor is used by at least one purpose,
-  and every purpose has a Hindi title.
+  and every purpose and data item has its Hindi text, so the Hindi notice never falls back to English.
+- **Every notice passes the automated checks** of `dpdpkit notice check` (example names and links aside).
 - **Sector overlays are named, not enabled.** `education`, `health-abdm` and `rbi-kyc` are planned for
   v0.5; the templates say where to add them once they ship.
 

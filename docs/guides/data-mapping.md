@@ -81,6 +81,9 @@ The workbook doesn't hold the notice text. `--base` keeps the notice and any oth
 configuration, and the workbook's values replace `contact`, `policy`, `overlays` and the registry lists. The
 output is plain YAML, so comments in the base file are not carried over. Review the diff before you commit it.
 
+New or changed purposes change the notice too. Run `dpdpkit notice check`, then send the pack from
+`dpdpkit notice review` to the client's counsel (see [Notice review](notice-review.md)).
+
 ## The scan report
 
 ```bash
