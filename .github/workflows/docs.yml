@@ -14,6 +14,11 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      # Repository variables (Settings → Secrets and variables → Actions → Variables); see README.
+      # Set for the whole job because mike deploy runs its own mkdocs build.
+      DPDPKIT_WAITLIST_ACTION: ${{ vars.WAITLIST_ACTION }}
+      DPDPKIT_WAITLIST_PROCESSOR: ${{ vars.WAITLIST_PROCESSOR }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -52,10 +57,6 @@ jobs:
           python scripts/stage_api_src.py _siblings
           python scripts/stage_storybook.py _siblings
       - run: mkdocs build --strict
-        env:
-          # Repository variables (Settings → Secrets and variables → Actions → Variables); see README.
-          DPDPKIT_WAITLIST_ACTION: ${{ vars.WAITLIST_ACTION }}
-          DPDPKIT_WAITLIST_PROCESSOR: ${{ vars.WAITLIST_PROCESSOR }}
       - name: Deploy
         if: github.event_name == 'push'
         run: |
