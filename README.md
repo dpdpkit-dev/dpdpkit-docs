@@ -25,17 +25,19 @@ Deploys: `main` → `/dev/`, tag `vX.Y.Z` → `/X.Y/` plus the `latest` alias.
 ## Cloud waitlist
 
 `docs/waitlist.md` shows a signup form with its privacy notice. The site is static, so submissions go to a
-third-party form service that accepts a plain HTML POST (and JSON when sent with `Accept: application/json`,
-for the in-page confirmation). The form stays disabled until two repository variables are set:
+Google Apps Script web app that stores them in a Google Sheet ([waitlist/](waitlist/README.md) has the script
+and setup steps). The form stays disabled until two repository variables are set:
 
-| Variable | Example | Used for |
+| Variable | Value | Used for |
 | --- | --- | --- |
-| `WAITLIST_ACTION` | `https://formspree.io/f/abcdwxyz` | The form's `action` URL |
-| `WAITLIST_PROCESSOR` | `Formspree` | Named in the notice as the service that stores submissions |
+| `WAITLIST_ACTION` | `https://script.google.com/macros/s/…/exec` | The form's `action` URL |
+| `WAITLIST_PROCESSOR` | `Google (Google Sheets)` | Named in the notice as the service that stores submissions |
 
 Locally, set `DPDPKIT_WAITLIST_ACTION` and `DPDPKIT_WAITLIST_PROCESSOR` before `mkdocs serve`.
 The form sends `email`, optional `organisation`, `stack` and `interest_*` fields, `consent=yes`,
-`notice_version`, and a `_gotcha` honeypot that should be empty (Formspree drops submissions that fill it).
+`notice_version`, and a `_gotcha` honeypot that should be empty, URL-encoded. The in-page script adds
+`_ajax=1` and expects `{"ok": true}` back. Any endpoint that does this works, e.g. Formspree, which uses the
+same `_gotcha` convention.
 Bump `extra.waitlist.notice_version` in `mkdocs.yml` whenever the notice text changes.
 
 ## Demo video

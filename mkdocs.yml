@@ -22,7 +22,7 @@ theme:
 extra:
   version:
     provider: mike
-  waitlist:  # docs/waitlist.md; the form stays disabled until action and processor are both set
+  waitlist:  # docs/waitlist.md, backend in waitlist/; the form stays disabled until action and processor are set
     action: !ENV [DPDPKIT_WAITLIST_ACTION, ""]        # form endpoint that accepts a plain HTML POST
     processor: !ENV [DPDPKIT_WAITLIST_PROCESSOR, ""]  # service behind it, named in the notice
     contact: privacy@dpdpkit.dev  # placeholder until the domain is registered (SETUP-05)
