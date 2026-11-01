@@ -10,6 +10,10 @@
     options:
       members: [list_templates, load_template, PurposeTemplate]
 
+::: dpdpkit.workbook
+    options:
+      members: [new_workbook, read_workbook, scan_report, MappingWorkbook, ScanFinding, Gap]
+
 ::: dpdpkit.policy.Policy
 
 ::: dpdpkit.policy.PolicyChange

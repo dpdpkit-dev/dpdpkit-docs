@@ -9,6 +9,9 @@ dpdpkit init --list-templates
 dpdpkit init --template edtech
 ```
 
+To correct a template with a client, open it as a [data-mapping workbook](data-mapping.md)
+(`dpdpkit workbook new --template edtech`) and import the result back into `dpdpkit.yaml`.
+
 | Template | For | What to look at first |
 | --- | --- | --- |
 | `edtech` | Learning apps, coaching and test prep, school and LMS platforms | Learners under 18: parental consent, no tracking or targeted ads |
