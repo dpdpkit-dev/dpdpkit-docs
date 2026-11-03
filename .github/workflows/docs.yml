@@ -35,6 +35,10 @@ jobs:
         with:
           repository: dpdpkit-dev/dpdpkit-fastapi
           path: _siblings/dpdpkit-fastapi
+      - uses: actions/checkout@v7
+        with:
+          repository: dpdpkit-dev/dpdpkit-pii
+          path: _siblings/dpdpkit-pii
       - name: Check out dpdpkit-react for the Storybook
         uses: actions/checkout@v7
         with:

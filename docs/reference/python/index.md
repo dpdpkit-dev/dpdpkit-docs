@@ -2,7 +2,8 @@
 
 Generated from the docstrings in [`dpdpkit-core`](https://github.com/dpdpkit-dev/dpdpkit-core),
 [`dpdpkit-fastapi`](https://github.com/dpdpkit-dev/dpdpkit-fastapi) and
-[`dpdpkit-django`](https://github.com/dpdpkit-dev/dpdpkit-django) on `main`. Everything listed here is
+[`dpdpkit-django`](https://github.com/dpdpkit-dev/dpdpkit-django) and
+[`dpdpkit-pii`](https://github.com/dpdpkit-dev/dpdpkit-pii) on `main`. Everything listed here is
 importable from the module shown in each heading.
 
 | Page | What it covers |
@@ -18,5 +19,6 @@ importable from the module shown in each heading.
 | [Models and errors](models.md) | Pydantic models, enums and exceptions |
 | [FastAPI adapter](fastapi.md) | `DPDPKit`, `require_consent`, `SqlAlchemyRepository` |
 | [Django app](django.md) | `requires_consent`, `RequiresConsentMixin`, `PersonalDataRegistry`, `DjangoRepository` |
+| [PII scanner](pii.md) | `scan_database`, `scan_files`, `build_report`, `classify_column`, `india_recognizers` |
 
 Names that start with an underscore are private and may change in any release.

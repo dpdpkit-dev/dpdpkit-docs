@@ -30,8 +30,8 @@ to whichever you chose over the [REST contract](../reference/rest.md).
 | [`dpdpkit-fastapi`](dpdpkit-fastapi.md) | FastAPI adapter: REST endpoints, SQLAlchemy storage, migrations, scheduler. | 0.1.0a3 | 3.10+ | `scheduler`, `celery`, `arq`, `postgres`, `mysql` |
 | [`dpdpkit-django`](dpdpkit-django.md) | Django app: models, REST endpoints, admin request queue. | 0.1.0a3 | 3.10+ | `drf`, `celery`, `postgres`, `mysql` |
 | [`dpdpkit-server`](dpdpkit-server.md) | The REST API as a self-hosted server and Docker image, built on `dpdpkit-fastapi`. | 0.1.0a3 | 3.10+ | `postgres` |
-| `dpdpkit-pii` | Finds personal data in your databases and files: Indian PII recognizers and a read-only scanner. Adds `dpdpkit scan`. | 0.1.0a2 | 3.10+ | `excel`, `s3` |
-| `dpdpkit-conformance` | The OpenAPI contract and black-box test suite every adapter passes. | 0.1.0a2 | 3.10+ | `asgi` |
+| [`dpdpkit-pii`](dpdpkit-pii.md) | Finds personal data in your databases and files: Indian PII recognizers and a read-only scanner. Adds `dpdpkit scan`; also a Docker image. | 0.1.0a2 | 3.10+ | `excel`, `s3` |
+| [`dpdpkit-conformance`](dpdpkit-conformance.md) | The OpenAPI contract and black-box test suite every adapter passes. | 0.1.0a2 | 3.10+ | `asgi` |
 
 ## JavaScript packages
 
@@ -42,6 +42,12 @@ to whichever you chose over the [REST contract](../reference/rest.md).
 | [`@dpdpkit/embed`](dpdpkit-embed.md) | Framework-free web components: `<dpdp-consent>`, `<dpdp-preferences>`, `<dpdp-rights-form>`. | 0.1.0-alpha.2 | none |
 
 The admin dashboard ([`dpdpkit-admin`](dpdpkit-admin.md)) is bundled with the backend packages and is not installed on its own.
+
+## CI tools
+
+| Tool | What it is |
+| --- | --- |
+| [`dpdpkit-lint-action`](dpdpkit-lint-action.md) | GitHub Action that fails a build when `dpdpkit.yaml` has no usable notice or a purpose has no retention rule. |
 
 ## Supported versions
 

@@ -77,6 +77,9 @@ nav:
       - "@dpdpkit/react": packages/dpdpkit-react.md
       - "@dpdpkit/embed": packages/dpdpkit-embed.md
       - dpdpkit-admin: packages/dpdpkit-admin.md
+      - dpdpkit-pii: packages/dpdpkit-pii.md
+      - dpdpkit-conformance: packages/dpdpkit-conformance.md
+      - dpdpkit-lint-action: packages/dpdpkit-lint-action.md
       - Page template: packages/template.md
   - Concepts:
       - Policy packs: concepts/policy-packs.md
@@ -107,4 +110,5 @@ nav:
           - Models and errors: reference/python/models.md
           - FastAPI adapter: reference/python/fastapi.md
           - Django app: reference/python/django.md
+          - PII scanner: reference/python/pii.md
   - Cloud waitlist: waitlist.md
