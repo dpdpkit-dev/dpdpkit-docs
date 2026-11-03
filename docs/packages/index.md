@@ -12,8 +12,9 @@ All packages are in alpha (`0.1.0a2`, `0.1.0-alpha.2` for npm), so pip needs `--
 | FastAPI | `pip install --pre "dpdpkit[fastapi]" "dpdpkit-fastapi[scheduler]"` | [FastAPI quickstart](../getting-started/fastapi.md), [`dpdpkit-fastapi`](dpdpkit-fastapi.md) |
 | Django | `pip install --pre dpdpkit-django` (add `[drf]` for Django REST framework) | [`dpdpkit-django`](dpdpkit-django.md) |
 | Node, PHP, Java, Go, Ruby or anything else | Run the `ghcr.io/dpdpkit-dev/server` Docker image | [Any other stack](../getting-started/other-stacks.md) |
-| React frontend | `npm install @dpdpkit/react` | [React components](../reference/react.md) |
-| Other JavaScript frontend | `npm install @dpdpkit/client` | [REST contract](../reference/rest.md) |
+| React frontend | `npm install @dpdpkit/react` | [`@dpdpkit/react`](dpdpkit-react.md), [React components](../reference/react.md) |
+| Plain HTML, a CMS, Vue, Svelte or Angular | `npm install @dpdpkit/embed`, or one `<script>` tag | [`@dpdpkit/embed`](dpdpkit-embed.md) |
+| Other JavaScript frontend or Node backend | `npm install @dpdpkit/client` | [`@dpdpkit/client`](dpdpkit-client.md), [REST contract](../reference/rest.md) |
 | Checking a build or a notice only | `pip install --pre dpdpkit-core` (gives the `dpdpkit` and `dpdp-lint` commands) | [Notice review](../guides/notice-review.md) |
 
 Pick **one** backend: the FastAPI adapter, the Django app or the server image. The frontend packages talk
@@ -36,9 +37,9 @@ to whichever you chose over the [REST contract](../reference/rest.md).
 
 | Package | What it is | Version | Requires |
 | --- | --- | --- | --- |
-| `@dpdpkit/client` | Typed client for the REST API. | 0.1.0-alpha.2 | Node 18+ |
-| `@dpdpkit/react` | `<ConsentNotice>`, `<PreferenceCenter>`, `<RightsRequestForm>`. | 0.1.0-alpha.2 | React 18+ |
-| `@dpdpkit/embed` | Framework-free web components: `<dpdp-consent>`, `<dpdp-preferences>`, `<dpdp-rights-form>`. | 0.1.0-alpha.2 | none |
+| [`@dpdpkit/client`](dpdpkit-client.md) | Typed client for the REST API. | 0.1.0-alpha.2 | Node 18+ |
+| [`@dpdpkit/react`](dpdpkit-react.md) | `<ConsentNotice>`, `<PreferenceCenter>`, `<RightsRequestForm>`. | 0.1.0-alpha.2 | React 18+ |
+| [`@dpdpkit/embed`](dpdpkit-embed.md) | Framework-free web components: `<dpdp-consent>`, `<dpdp-preferences>`, `<dpdp-rights-form>`. | 0.1.0-alpha.2 | none |
 
 The admin dashboard (`dpdpkit-admin`) is bundled with the backend packages and is not installed on its own.
 
