@@ -8,7 +8,7 @@ Versioned DPDP policy packs, sector overlays, and the JSON Schema that validates
 | Version | 2026.11.0a1 (CalVer, released on its own schedule) |
 | Requires | Python 3.10+, `pyyaml`, `jsonschema` |
 | Source | [dpdpkit-policies](https://github.com/dpdpkit-dev/dpdpkit-policies) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-policies/blob/main/CHANGELOG.md) |
-| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/core) (fictional data) |
+| Demo | [Try it on the demo site](https://dpdpkit-demo.onrender.com/packages/core) (fictional data; can take a minute or more to wake) |
 
 The four sector overlays are covered on [Policy overlays](policy-overlays.md). Background is in
 [Policy packs](../concepts/policy-packs.md) and [Rule to code](../reference/rule-to-code.md).

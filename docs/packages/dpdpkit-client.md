@@ -8,7 +8,7 @@ The typed TypeScript client for the dpdpkit REST API, with an Express middleware
 | Version | 0.1.0-alpha.2 |
 | Requires | A browser with `fetch`, or Node 18+. TypeScript is optional; types ship with the package. |
 | Source | [dpdpkit-client](https://github.com/dpdpkit-dev/dpdpkit-client) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-client/blob/main/CHANGELOG.md) |
-| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/client) (fictional data) |
+| Demo | [Try it on the demo site](https://dpdpkit-demo.onrender.com/packages/client) (fictional data; can take a minute or more to wake) |
 
 The types are generated from the OpenAPI file in `dpdpkit-spec`, so the client matches the FastAPI adapter, the
 Django app and the server image. See the [package index](index.md) for the other packages in the stack.

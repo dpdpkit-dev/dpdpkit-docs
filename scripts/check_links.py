@@ -16,9 +16,9 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urldefrag, urlparse
 
-# Hosts that don't answer yet. dpdpkit.dev and the demo host are not registered or deployed (SETUP-05,
-# DEMO-10, DEMO-11); remove them from this list when they are live, so the demo links are checked.
-NOT_LIVE = {"dpdpkit.dev", "demo.dpdpkit.dev"}
+# Hosts not to probe. dpdpkit.dev isn't registered yet (SETUP-05). The demo sleeps on its free plan and can outlast
+# the timeout here; its own smoke-live workflow checks it every six hours.
+NOT_LIVE = {"dpdpkit.dev", "dpdpkit-demo.onrender.com"}
 # Example and placeholder hosts used in code samples.
 EXAMPLE = re.compile(r"(^|\.)(example\.(com|org|net)|localhost|127\.0\.0\.1|0\.0\.0\.0)$")
 HEADERS = {"User-Agent": "dpdpkit-docs-link-check (+https://github.com/dpdpkit-dev/dpdpkit-docs)"}

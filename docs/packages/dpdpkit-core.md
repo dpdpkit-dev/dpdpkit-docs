@@ -8,7 +8,7 @@ The rules engine: consent ledger, versioned notices, rights requests, retention 
 | Version | 0.1.0a2 |
 | Requires | Python 3.10+, `pydantic>=2.6`, `dpdpkit-policies` |
 | Source | [dpdpkit-core](https://github.com/dpdpkit-dev/dpdpkit-core) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-core/blob/main/CHANGELOG.md) |
-| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/core) (fictional data) |
+| Demo | [Try it on the demo site](https://dpdpkit-demo.onrender.com/packages/core) (fictional data; can take a minute or more to wake) |
 
 Core has no web framework and no database driver. For a service, pick an adapter from the
 [package index](index.md). Installing `dpdpkit-core` also installs [`dpdpkit-policies`](dpdpkit-policies.md), and

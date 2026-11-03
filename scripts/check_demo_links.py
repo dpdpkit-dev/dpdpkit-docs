@@ -9,7 +9,7 @@ import re
 import sys
 from pathlib import Path
 
-DEMO_BASE = "https://demo.dpdpkit.dev"  # placeholder until the host is chosen (DEMO-10); also in check_links.py
+DEMO_BASE = "https://dpdpkit-demo.onrender.com"  # also in check_links.py
 
 # package page -> demo slug ("" is the demo home page)
 DEMO = {

@@ -8,7 +8,7 @@ Finds personal data in your databases and files and compares it with the data yo
 | Version | 0.1.0a2 |
 | Requires | Python 3.10+, `dpdpkit-core` (same minor series), Presidio, SQLAlchemy 2 |
 | Source | [dpdpkit-pii](https://github.com/dpdpkit-dev/dpdpkit-pii) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-pii/blob/main/CHANGELOG.md) |
-| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/pii) (fictional data) |
+| Demo | [Try it on the demo site](https://dpdpkit-demo.onrender.com/packages/pii) (fictional data; can take a minute or more to wake) |
 
 See the [package index](index.md) for the other packages.
 

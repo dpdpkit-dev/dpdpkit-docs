@@ -8,7 +8,7 @@ Framework-free web components, `<dpdp-consent>`, `<dpdp-preferences>` and `<dpdp
 | Version | 0.1.0-alpha.2 |
 | Requires | A browser with custom elements and shadow DOM. No framework and no other package: [`@dpdpkit/client`](dpdpkit-client.md) is bundled in. |
 | Source | [dpdpkit-embed](https://github.com/dpdpkit-dev/dpdpkit-embed) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-embed/blob/main/CHANGELOG.md) |
-| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/server) (fictional data) |
+| Demo | [Try it on the demo site](https://dpdpkit-demo.onrender.com/packages/server) (fictional data; can take a minute or more to wake) |
 
 The elements work with any dpdpkit backend. Because they run in the visitor's browser, they authenticate with a
 short-lived token that your backend mints, best done with the [server image](dpdpkit-server.md). See the

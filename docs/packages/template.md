@@ -35,7 +35,7 @@ guidance comments. Keep a section even when it is short; write "None yet." rathe
 | Version | <current version> |
 | Requires | <Python / Node / framework versions> |
 | Source | <link to repo> · [Changelog](<link>) |
-| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/<demo-slug>) (fictional data) |
+| Demo | [Try it on the demo site](https://dpdpkit-demo.onrender.com/packages/<demo-slug>) (fictional data; can take a minute or more to wake) |
 
 ## Install
 

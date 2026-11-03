@@ -8,7 +8,7 @@ A GitHub Action that fails your CI when your `dpdpkit.yaml` has no usable notice
 | Version | `v1` |
 | Requires | A GitHub Actions runner with `bash`; it sets up Python itself |
 | Source | [dpdpkit-lint-action](https://github.com/dpdpkit-dev/dpdpkit-lint-action) |
-| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/ci) (fictional data) |
+| Demo | [Try it on the demo site](https://dpdpkit-demo.onrender.com/packages/ci) (fictional data; can take a minute or more to wake) |
 
 See the [package index](index.md) for the other packages.
 
