@@ -64,6 +64,9 @@ nav:
   - Getting started:
       - FastAPI quickstart: getting-started/fastapi.md
       - Any other stack: getting-started/other-stacks.md
+  - Packages:
+      - Package index: packages/index.md
+      - Page template: packages/template.md
   - Concepts:
       - Policy packs: concepts/policy-packs.md
       - Consent ledger: concepts/ledger.md
