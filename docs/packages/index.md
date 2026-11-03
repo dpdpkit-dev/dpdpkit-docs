@@ -41,7 +41,7 @@ to whichever you chose over the [REST contract](../reference/rest.md).
 | [`@dpdpkit/react`](dpdpkit-react.md) | `<ConsentNotice>`, `<PreferenceCenter>`, `<RightsRequestForm>`. | 0.1.0-alpha.2 | React 18+ |
 | [`@dpdpkit/embed`](dpdpkit-embed.md) | Framework-free web components: `<dpdp-consent>`, `<dpdp-preferences>`, `<dpdp-rights-form>`. | 0.1.0-alpha.2 | none |
 
-The admin dashboard (`dpdpkit-admin`) is bundled with the backend packages and is not installed on its own.
+The admin dashboard ([`dpdpkit-admin`](dpdpkit-admin.md)) is bundled with the backend packages and is not installed on its own.
 
 ## Supported versions
 

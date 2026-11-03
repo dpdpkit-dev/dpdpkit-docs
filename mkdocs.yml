@@ -76,6 +76,7 @@ nav:
       - "@dpdpkit/client": packages/dpdpkit-client.md
       - "@dpdpkit/react": packages/dpdpkit-react.md
       - "@dpdpkit/embed": packages/dpdpkit-embed.md
+      - dpdpkit-admin: packages/dpdpkit-admin.md
       - Page template: packages/template.md
   - Concepts:
       - Policy packs: concepts/policy-packs.md
