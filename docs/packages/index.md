@@ -28,7 +28,7 @@ to whichever you chose over the [REST contract](../reference/rest.md).
 | [`dpdpkit-policies`](dpdpkit-policies.md) | Versioned DPDP policy packs and [sector overlays](policy-overlays.md). Installed by core. | 2026.11.0a1 | 3.10+ | none |
 | [`dpdpkit-fastapi`](dpdpkit-fastapi.md) | FastAPI adapter: REST endpoints, SQLAlchemy storage, migrations, scheduler. | 0.1.0a3 | 3.10+ | `scheduler`, `celery`, `arq`, `postgres`, `mysql` |
 | [`dpdpkit-django`](dpdpkit-django.md) | Django app: models, REST endpoints, admin request queue. | 0.1.0a3 | 3.10+ | `drf`, `celery`, `postgres`, `mysql` |
-| `dpdpkit-server` | The REST API as a self-hosted server and Docker image, built on `dpdpkit-fastapi`. | 0.1.0a2 | 3.10+ | `postgres` |
+| [`dpdpkit-server`](dpdpkit-server.md) | The REST API as a self-hosted server and Docker image, built on `dpdpkit-fastapi`. | 0.1.0a3 | 3.10+ | `postgres` |
 | `dpdpkit-pii` | Finds personal data in your databases and files: Indian PII recognizers and a read-only scanner. Adds `dpdpkit scan`. | 0.1.0a2 | 3.10+ | `excel`, `s3` |
 | `dpdpkit-conformance` | The OpenAPI contract and black-box test suite every adapter passes. | 0.1.0a2 | 3.10+ | `asgi` |
 

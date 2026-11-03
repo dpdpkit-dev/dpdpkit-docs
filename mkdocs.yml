@@ -72,6 +72,7 @@ nav:
       - Policy overlays: packages/policy-overlays.md
       - dpdpkit-fastapi: packages/dpdpkit-fastapi.md
       - dpdpkit-django: packages/dpdpkit-django.md
+      - dpdpkit-server: packages/dpdpkit-server.md
       - Page template: packages/template.md
   - Concepts:
       - Policy packs: concepts/policy-packs.md
