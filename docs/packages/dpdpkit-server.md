@@ -8,6 +8,7 @@ The server image: `dpdpkit-fastapi` packaged as a Docker container that runs the
 | Version | 0.1.0a3 |
 | Requires | Docker (or any OCI runtime) and PostgreSQL for anything beyond a trial. Images are `linux/amd64` and `linux/arm64`. |
 | Source | [dpdpkit-server](https://github.com/dpdpkit-dev/dpdpkit-server) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-server/blob/main/CHANGELOG.md) |
+| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/server) (fictional data) |
 
 The image is also published as a Python package, `dpdpkit-server` (`pip install --pre "dpdpkit-server[postgres]"`), which
 runs the same server with `python -m dpdpkit.server`. It installs [`dpdpkit-core`](dpdpkit-core.md) and

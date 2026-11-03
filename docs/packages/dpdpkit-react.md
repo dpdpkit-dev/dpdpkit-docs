@@ -8,6 +8,7 @@ React components and hooks for the consent notice, preference centre, rights req
 | Version | 0.1.0-alpha.2 |
 | Requires | React and React DOM 18+, and `@dpdpkit/client` `>=0.1.0-0 <0.2.0` as a peer dependency |
 | Source | [dpdpkit-react](https://github.com/dpdpkit-dev/dpdpkit-react) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-react/blob/main/CHANGELOG.md) |
+| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/fastapi) (fictional data) |
 
 The components talk to any dpdpkit backend: [`dpdpkit-fastapi`](dpdpkit-fastapi.md), [`dpdpkit-django`](dpdpkit-django.md)
 or the [server image](dpdpkit-server.md). See the [package index](index.md).

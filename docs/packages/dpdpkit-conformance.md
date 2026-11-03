@@ -8,6 +8,7 @@ The OpenAPI 3.1 contract for the dpdpkit REST API, and a black-box pytest suite 
 | Version | 0.1.0a2 |
 | Requires | Python 3.10+, pytest 8, httpx; `starlette` for the `asgi` extra |
 | Source | [dpdpkit-spec](https://github.com/dpdpkit-dev/dpdpkit-spec) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-spec/blob/main/CHANGELOG.md) |
+| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/ci) (fictional data) |
 
 See the [package index](index.md) for the other packages.
 

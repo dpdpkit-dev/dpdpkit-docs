@@ -8,6 +8,7 @@ Versioned DPDP policy packs, sector overlays, and the JSON Schema that validates
 | Version | 2026.11.0a1 (CalVer, released on its own schedule) |
 | Requires | Python 3.10+, `pyyaml`, `jsonschema` |
 | Source | [dpdpkit-policies](https://github.com/dpdpkit-dev/dpdpkit-policies) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-policies/blob/main/CHANGELOG.md) |
+| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/core) (fictional data) |
 
 The four sector overlays are covered on [Policy overlays](policy-overlays.md). Background is in
 [Policy packs](../concepts/policy-packs.md) and [Rule to code](../reference/rule-to-code.md).
@@ -29,6 +30,7 @@ four overlays.
 
 1. List what ships.
 
+    <!-- sample: run -->
     ```bash
     dpdpkit-policies list
     ```
@@ -50,6 +52,7 @@ four overlays.
 
 3. Load a pack in Python.
 
+    <!-- sample: run -->
     ```python
     import dpdpkit_policies as policies
 
@@ -59,6 +62,7 @@ four overlays.
 
 4. Print the rule-to-code map, which is also how the [Rule to code](../reference/rule-to-code.md) page is built.
 
+    <!-- sample: run -->
     ```bash
     dpdpkit-policies rule-map                 # Markdown table
     dpdpkit-policies rule-map --format json

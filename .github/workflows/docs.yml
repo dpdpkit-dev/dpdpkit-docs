@@ -61,6 +61,15 @@ jobs:
           python scripts/stage_api_src.py _siblings
           python scripts/stage_storybook.py _siblings
       - run: mkdocs build --strict
+      - name: Check that each package page links to its demo page
+        run: python scripts/check_demo_links.py
+      - name: Check external links in the built site
+        run: python scripts/check_links.py site
+      - name: Run the package-page code samples against the published packages
+        run: |
+          python -m venv "$RUNNER_TEMP/samples"
+          "$RUNNER_TEMP/samples/bin/pip" install --pre dpdpkit-core dpdpkit-policies
+          python scripts/check_samples.py --python "$RUNNER_TEMP/samples/bin/python"
       - name: Deploy
         if: github.event_name == 'push'
         run: |

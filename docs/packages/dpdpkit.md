@@ -8,6 +8,7 @@ The meta-package: one name to install that pulls in [`dpdpkit-core`](dpdpkit-cor
 | Version | 0.1.0a2 (always equal to `dpdpkit-core`) |
 | Requires | Python 3.10+ |
 | Source | [dpdpkit-dev](https://github.com/dpdpkit-dev) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-core/blob/main/CHANGELOG.md) |
+| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/) (fictional data) |
 
 Other packages in the same stack are listed in the [package index](index.md).
 

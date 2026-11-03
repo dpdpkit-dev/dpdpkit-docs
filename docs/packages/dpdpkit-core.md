@@ -8,6 +8,7 @@ The rules engine: consent ledger, versioned notices, rights requests, retention 
 | Version | 0.1.0a2 |
 | Requires | Python 3.10+, `pydantic>=2.6`, `dpdpkit-policies` |
 | Source | [dpdpkit-core](https://github.com/dpdpkit-dev/dpdpkit-core) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-core/blob/main/CHANGELOG.md) |
+| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/core) (fictional data) |
 
 Core has no web framework and no database driver. For a service, pick an adapter from the
 [package index](index.md). Installing `dpdpkit-core` also installs [`dpdpkit-policies`](dpdpkit-policies.md), and
@@ -36,12 +37,14 @@ The base install gives you two commands: `dpdpkit` and `dpdp-lint`.
 1. Write a starter configuration. `dpdpkit init --template edtech` starts from an industry template instead
    (`dpdpkit init --list-templates` lists them).
 
+    <!-- sample: run -->
     ```bash
     dpdpkit init
     ```
 
 2. Build a kit from it, record a consent, withdraw it and verify the ledger.
 
+    <!-- sample: run -->
     ```python
     from dpdpkit import InMemoryRepository, MemoryNotifier, kit_from_config, load_config, sync_notice
 
@@ -58,6 +61,7 @@ The base install gives you two commands: `dpdpkit` and `dpdp-lint`.
 
 3. Check the notice and the configuration from the command line.
 
+    <!-- sample: run -->
     ```bash
     dpdpkit notice check
     dpdpkit lint

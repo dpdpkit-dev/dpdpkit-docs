@@ -8,6 +8,7 @@ Sector overlays add rules from other regulations on top of the base DPDP pack. T
 | Version | 2026.11.0a1 |
 | Overlays | `cert-in-2022`, `rbi-kyc`, `health-abdm`, `education` |
 | Source | [overlays folder](https://github.com/dpdpkit-dev/dpdpkit-policies/tree/main/src/dpdpkit_policies/overlays) |
+| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/core) (fictional data) |
 
 !!! warning "Drafts, not legal advice"
     All four overlays are marked **draft**. Periods, clause numbers and scope follow the usual reading of each
@@ -42,6 +43,7 @@ dpdpkit-policies list
 
 3. Or load it from Python.
 
+    <!-- sample: run -->
     ```python
     from dpdpkit import Policy
 

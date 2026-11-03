@@ -8,6 +8,7 @@ The FastAPI adapter: it adds the dpdpkit REST endpoints, SQLAlchemy storage, dat
 | Version | 0.1.0a3 |
 | Requires | Python 3.10+, `dpdpkit-core>=0.1.0a2,<0.2`, `fastapi>=0.110`, `sqlalchemy>=2.0.25`, `alembic>=1.13` |
 | Source | [dpdpkit-fastapi](https://github.com/dpdpkit-dev/dpdpkit-fastapi) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-fastapi/blob/main/CHANGELOG.md) |
+| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/fastapi) (fictional data) |
 
 Installing `dpdpkit-fastapi` also installs [`dpdpkit-core`](dpdpkit-core.md). The `dpdpkit[fastapi]` extra on the
 [`dpdpkit` meta-package](dpdpkit.md) installs the same pair. Pick one backend: this adapter, the Django app or

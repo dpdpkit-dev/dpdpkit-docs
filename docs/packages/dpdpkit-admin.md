@@ -8,6 +8,7 @@ The self-hosted admin dashboard: a static web app where your team works the righ
 | Version | 0.1.0-alpha.2 |
 | Requires | A dpdpkit backend that serves the admin endpoints, and a modern browser |
 | Source | [dpdpkit-admin](https://github.com/dpdpkit-dev/dpdpkit-admin) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-admin/blob/main/CHANGELOG.md) |
+| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/admin) (fictional data) |
 
 See the [package index](index.md) for the other packages.
 

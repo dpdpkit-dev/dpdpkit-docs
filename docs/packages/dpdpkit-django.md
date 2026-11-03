@@ -8,6 +8,7 @@ The Django app: models and migrations that keep dpdpkit's tables in your own dat
 | Version | 0.1.0a3 |
 | Requires | Python 3.10+, `django>=4.2`, `dpdpkit-core>=0.1.0a2,<0.2` |
 | Source | [dpdpkit-django](https://github.com/dpdpkit-dev/dpdpkit-django) · [Changelog](https://github.com/dpdpkit-dev/dpdpkit-django/blob/main/CHANGELOG.md) |
+| Demo | [Try it on the demo site](https://demo.dpdpkit.dev/packages/django) (fictional data) |
 
 Installing `dpdpkit-django` also installs [`dpdpkit-core`](dpdpkit-core.md). The [`dpdpkit` meta-package](dpdpkit.md)
 has no `django` extra, so install this package by name. Pick one backend: this app, the FastAPI adapter or the
