@@ -1,7 +1,8 @@
 # Python API
 
-Generated from the docstrings in [`dpdpkit-core`](https://github.com/dpdpkit-dev/dpdpkit-core) and
-[`dpdpkit-fastapi`](https://github.com/dpdpkit-dev/dpdpkit-fastapi) on `main`. Everything listed here is
+Generated from the docstrings in [`dpdpkit-core`](https://github.com/dpdpkit-dev/dpdpkit-core),
+[`dpdpkit-fastapi`](https://github.com/dpdpkit-dev/dpdpkit-fastapi) and
+[`dpdpkit-django`](https://github.com/dpdpkit-dev/dpdpkit-django) on `main`. Everything listed here is
 importable from the module shown in each heading.
 
 | Page | What it covers |
@@ -16,5 +17,6 @@ importable from the module shown in each heading.
 | [Storage](storage.md) | `Repository` protocol, `InMemoryRepository` |
 | [Models and errors](models.md) | Pydantic models, enums and exceptions |
 | [FastAPI adapter](fastapi.md) | `DPDPKit`, `require_consent`, `SqlAlchemyRepository` |
+| [Django app](django.md) | `requires_consent`, `RequiresConsentMixin`, `PersonalDataRegistry`, `DjangoRepository` |
 
 Names that start with an underscore are private and may change in any release.

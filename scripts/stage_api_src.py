@@ -1,6 +1,6 @@
 """Merge the dpdpkit namespace from sibling checkouts into build/api-src for mkdocstrings.
 
-dpdpkit-core and dpdpkit-fastapi both ship parts of the ``dpdpkit`` package, and griffe stops at the
+dpdpkit-core, dpdpkit-fastapi and dpdpkit-django all ship parts of the ``dpdpkit`` package, and griffe stops at the
 first ``dpdpkit/__init__.py`` it finds, so the API reference is built from one merged copy.
 Usage: python scripts/stage_api_src.py [checkouts-dir]   (default: the folder containing this repo)
 """
@@ -16,4 +16,5 @@ shutil.rmtree(target, ignore_errors=True)
 skip = shutil.ignore_patterns("__pycache__", "*.pyc")
 shutil.copytree(checkouts / "dpdpkit-core" / "src" / "dpdpkit", target, ignore=skip)
 shutil.copytree(checkouts / "dpdpkit-fastapi" / "src" / "dpdpkit" / "fastapi", target / "fastapi", ignore=skip)
+shutil.copytree(checkouts / "dpdpkit-django" / "src" / "dpdpkit" / "django", target / "django", ignore=skip)
 print(f"staged {target}")

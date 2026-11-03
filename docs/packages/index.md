@@ -9,8 +9,8 @@ All packages are in alpha (`0.1.0a2`, `0.1.0-alpha.2` for npm), so pip needs `--
 
 | Your stack | Install | Then |
 | --- | --- | --- |
-| FastAPI | `pip install --pre "dpdpkit[fastapi]" "dpdpkit-fastapi[scheduler]"` | [FastAPI quickstart](../getting-started/fastapi.md) |
-| Django | `pip install --pre dpdpkit-django` (add `[drf]` for Django REST framework) | Package page to follow |
+| FastAPI | `pip install --pre "dpdpkit[fastapi]" "dpdpkit-fastapi[scheduler]"` | [FastAPI quickstart](../getting-started/fastapi.md), [`dpdpkit-fastapi`](dpdpkit-fastapi.md) |
+| Django | `pip install --pre dpdpkit-django` (add `[drf]` for Django REST framework) | [`dpdpkit-django`](dpdpkit-django.md) |
 | Node, PHP, Java, Go, Ruby or anything else | Run the `ghcr.io/dpdpkit-dev/server` Docker image | [Any other stack](../getting-started/other-stacks.md) |
 | React frontend | `npm install @dpdpkit/react` | [React components](../reference/react.md) |
 | Other JavaScript frontend | `npm install @dpdpkit/client` | [REST contract](../reference/rest.md) |
@@ -26,8 +26,8 @@ to whichever you chose over the [REST contract](../reference/rest.md).
 | [`dpdpkit`](dpdpkit.md) | Meta-package. Installs `dpdpkit-core`; extras pull in adapters. Its version always equals `dpdpkit-core`. | 0.1.0a2 | 3.10+ | `fastapi`, `ses`, `workbook` |
 | [`dpdpkit-core`](dpdpkit-core.md) | The kit: consent, notices, rights requests, retention, ledger, events, export, and the `dpdpkit` CLI. | 0.1.0a2 | 3.10+ | `ses`, `workbook` |
 | [`dpdpkit-policies`](dpdpkit-policies.md) | Versioned DPDP policy packs and [sector overlays](policy-overlays.md). Installed by core. | 2026.11.0a1 | 3.10+ | none |
-| `dpdpkit-fastapi` | FastAPI adapter: REST endpoints, SQLAlchemy storage, migrations, scheduler. | 0.1.0a2 | 3.10+ | `scheduler`, `celery`, `arq`, `postgres`, `mysql` |
-| `dpdpkit-django` | Django app: models, REST endpoints, admin request queue. | 0.1.0a2 | 3.10+ | `drf`, `celery`, `postgres`, `mysql` |
+| [`dpdpkit-fastapi`](dpdpkit-fastapi.md) | FastAPI adapter: REST endpoints, SQLAlchemy storage, migrations, scheduler. | 0.1.0a3 | 3.10+ | `scheduler`, `celery`, `arq`, `postgres`, `mysql` |
+| [`dpdpkit-django`](dpdpkit-django.md) | Django app: models, REST endpoints, admin request queue. | 0.1.0a3 | 3.10+ | `drf`, `celery`, `postgres`, `mysql` |
 | `dpdpkit-server` | The REST API as a self-hosted server and Docker image, built on `dpdpkit-fastapi`. | 0.1.0a2 | 3.10+ | `postgres` |
 | `dpdpkit-pii` | Finds personal data in your databases and files: Indian PII recognizers and a read-only scanner. Adds `dpdpkit scan`. | 0.1.0a2 | 3.10+ | `excel`, `s3` |
 | `dpdpkit-conformance` | The OpenAPI contract and black-box test suite every adapter passes. | 0.1.0a2 | 3.10+ | `asgi` |
