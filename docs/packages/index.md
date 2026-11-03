@@ -23,9 +23,9 @@ to whichever you chose over the [REST contract](../reference/rest.md).
 
 | Package | What it is | Version | Python | Extras |
 | --- | --- | --- | --- | --- |
-| `dpdpkit` | Meta-package. Installs `dpdpkit-core`; extras pull in adapters. Its version always equals `dpdpkit-core`. | 0.1.0a2 | 3.10+ | `fastapi`, `ses`, `workbook` |
-| `dpdpkit-core` | The kit: consent, notices, rights requests, retention, ledger, events, export, and the `dpdpkit` CLI. | 0.1.0a2 | 3.10+ | `ses`, `workbook` |
-| `dpdpkit-policies` | Versioned DPDP policy packs and sector overlays. Installed by core. | 2026.11.0a1 | 3.10+ | none |
+| [`dpdpkit`](dpdpkit.md) | Meta-package. Installs `dpdpkit-core`; extras pull in adapters. Its version always equals `dpdpkit-core`. | 0.1.0a2 | 3.10+ | `fastapi`, `ses`, `workbook` |
+| [`dpdpkit-core`](dpdpkit-core.md) | The kit: consent, notices, rights requests, retention, ledger, events, export, and the `dpdpkit` CLI. | 0.1.0a2 | 3.10+ | `ses`, `workbook` |
+| [`dpdpkit-policies`](dpdpkit-policies.md) | Versioned DPDP policy packs and [sector overlays](policy-overlays.md). Installed by core. | 2026.11.0a1 | 3.10+ | none |
 | `dpdpkit-fastapi` | FastAPI adapter: REST endpoints, SQLAlchemy storage, migrations, scheduler. | 0.1.0a2 | 3.10+ | `scheduler`, `celery`, `arq`, `postgres`, `mysql` |
 | `dpdpkit-django` | Django app: models, REST endpoints, admin request queue. | 0.1.0a2 | 3.10+ | `drf`, `celery`, `postgres`, `mysql` |
 | `dpdpkit-server` | The REST API as a self-hosted server and Docker image, built on `dpdpkit-fastapi`. | 0.1.0a2 | 3.10+ | `postgres` |

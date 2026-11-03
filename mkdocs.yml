@@ -66,6 +66,10 @@ nav:
       - Any other stack: getting-started/other-stacks.md
   - Packages:
       - Package index: packages/index.md
+      - dpdpkit: packages/dpdpkit.md
+      - dpdpkit-core: packages/dpdpkit-core.md
+      - dpdpkit-policies: packages/dpdpkit-policies.md
+      - Policy overlays: packages/policy-overlays.md
       - Page template: packages/template.md
   - Concepts:
       - Policy packs: concepts/policy-packs.md
